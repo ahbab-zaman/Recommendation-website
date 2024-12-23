@@ -8,10 +8,13 @@ import MyQueries from "../Layouts/MyQueries/MyQueries";
 import Recommendations from "../Layouts/Recommendations/Recommendations";
 import MyRecommendations from "../Layouts/MyRecommendations/MyRecommendations";
 import AddQuery from "../Layouts/AddQuery/AddQuery";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import QueryDetails from "../Pages/QueryDetails/QueryDetails";
 
 const router = createBrowserRouter([
     {
         path:"/",
+        errorElement:<ErrorPage></ErrorPage>,
         element:<MainLayout></MainLayout>,
         children:[
             {
@@ -45,6 +48,10 @@ const router = createBrowserRouter([
             {
                 path:"/addQuery",
                 element:<AddQuery></AddQuery>
+            },
+            {
+                path:"/queryDetails",
+                element:<QueryDetails></QueryDetails>
             }
         ]
     }

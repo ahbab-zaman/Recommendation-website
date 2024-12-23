@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-
+import icon from "../assets/icon (2).png";
 const Navbar = () => {
   const { user, userSignOut } = useContext(AuthContext);
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 sticky top-0">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -45,6 +45,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+        <img className="w-8" src={icon} alt="" />
         <a className="btn btn-ghost text-xl">Recommendo</a>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -55,25 +56,38 @@ const Navbar = () => {
           <li>
             <NavLink to="/queries">Queries</NavLink>
           </li>
-          <li>
-            <NavLink to="/recommendation">Recommendation for me</NavLink>
-          </li>
-          <li>
-            <NavLink to="/myQueries">My Queries</NavLink>
-          </li>
-          <li>
-            <NavLink to="/myRecommendation">My Recommendation</NavLink>
-          </li>
+          {user && (
+            <li>
+              <NavLink to="/recommendation">Recommendation for me</NavLink>
+            </li>
+          )}
+          {user && (
+            <li>
+              <NavLink to="/myQueries">My Queries</NavLink>
+            </li>
+          )}
+          {user && (
+            <li>
+              <NavLink to="/myRecommendation">My Recommendation</NavLink>
+            </li>
+          )}
         </ul>
       </div>
       <div className="navbar-end">
         {user ? (
           <Link to="/login">
-            <button onClick={userSignOut} className="px-4 p-2 bg-[#2B3440] rounded-none text-white font-semibold">Logout</button>
+            <button
+              onClick={userSignOut}
+              className="px-4 p-2 bg-[#2B3440] rounded-none text-white font-semibold"
+            >
+              Logout
+            </button>
           </Link>
         ) : (
           <Link to="/login">
-            <button className="px-4 p-2 bg-[#2B3440] rounded-none text-white font-semibold">Login</button>
+            <button className="px-4 p-2 bg-[#2B3440] rounded-none text-white font-semibold">
+              Login
+            </button>
           </Link>
         )}
       </div>
