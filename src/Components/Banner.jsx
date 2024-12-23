@@ -1,32 +1,46 @@
+import banner1 from "../assets/banner1.jpg";
+import banner2 from "../assets/banner2.jpg";
+import banner3 from "../assets/banner3.jpg";
+import banner4 from "../assets/banner4.jpg";
+import banner5 from "../assets/banner5.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import Slide from "./Slide";
 
 const Banner = () => {
   return (
     <Swiper
       spaceBetween={50}
       slidesPerView={1}
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false,
-      }}
+      centeredSlides={true}
+      loop={true}
       pagination={{
         clickable: true,
       }}
       navigation={true}
-      modules={[Autoplay, Pagination, Navigation]}
+      modules={[Pagination, Navigation]}
       className="mySwiper"
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
     >
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-      ...
+      <SwiperSlide>
+        <Slide image={banner1} text={"Compare Top-rated products and save time and money on your purchases"}></Slide>
+      </SwiperSlide>
+      <SwiperSlide>
+        <Slide image={banner2} text={"Get recommendation backed by real user experiences and expert advice"}></Slide>
+      </SwiperSlide>
+      <SwiperSlide>
+        <Slide image={banner3} text={"Access handpick recommendations by industry professionals"}></Slide>
+      </SwiperSlide>
+      <SwiperSlide>
+        <Slide image={banner4} text={"Get the most recommended products at unbeatable price"}></Slide>
+      </SwiperSlide>
+      <SwiperSlide>
+        <Slide image={banner5} text={"Discover recommendations for every season and occasion"}></Slide>
+      </SwiperSlide>
     </Swiper>
   );
 };

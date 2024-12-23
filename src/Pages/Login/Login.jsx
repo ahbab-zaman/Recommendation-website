@@ -1,9 +1,24 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import googleImg from "../../assets/google.png";
+import { auth } from "../../Firebase/Firebase.init";
 
 const Login = () => {
-  const { user, userSignIn } = useContext(AuthContext);
+  const { user, setUser, userSignIn } = useContext(AuthContext);
+
+  const provider = new GoogleAuthProvider();
+  const googleLogin = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        setUser(result.user);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("Invalid User", error.code);
+      });
+  };
   const navigate = useNavigate();
   const handleLogin = (event) => {
     event.preventDefault();
@@ -13,7 +28,7 @@ const Login = () => {
 
     userSignIn(email, password)
       .then((res) => {
-        console.log(res.user);
+        setUser(res.user);
         navigate("/");
       })
       .catch((error) => {
@@ -66,9 +81,12 @@ const Login = () => {
                 </div>
                 <div className="text-center text-lg font-bold">Or</div>
 
-                <button className="form-control flex-row justify-center gap-4 items-center p-3 mt-2 border rounded-full">
+                <button
+                  onClick={googleLogin}
+                  className="form-control flex-row justify-center gap-4 items-center p-3 mt-2 border rounded-full"
+                >
                   <div>
-                    <img className="w-[30px]" alt="" />
+                    <img className="w-[30px]" src={googleImg} alt="" />
                   </div>
                   <div className="text-xl font-semibold">
                     Signin With Google

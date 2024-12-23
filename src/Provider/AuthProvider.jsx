@@ -2,6 +2,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
   updateProfile,
 } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
@@ -30,6 +31,12 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, updatedUser);
   };
 
+  //   Signout user
+  const userSignOut = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
+
   // Observer function
 
   useEffect(() => {
@@ -49,7 +56,8 @@ const AuthProvider = ({ children }) => {
     setLoading,
     userRegister,
     userSignIn,
-    profileUpdate
+    profileUpdate,
+    userSignOut
   };
 
   return (
