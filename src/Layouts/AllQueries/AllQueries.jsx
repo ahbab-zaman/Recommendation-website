@@ -8,7 +8,9 @@ const AllQueries = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/allQueries");
+        const { data } = await axios.get(
+          `${import.meta.env.VITE_API_URL}/allQueries`
+        );
         setQueries(data);
       } catch (error) {
         console.log(error);
@@ -25,7 +27,7 @@ const AllQueries = () => {
           These are our latest queries made by the users
         </p>
       </div>
-      <div className="w-11/12 mx-auto lg:grid grid-cols-3 grid-col-1 py-6">
+      <div className="w-11/12 mx-auto lg:grid grid-cols-3 grid-col-1 py-6 gap-6">
         {queries.map((query) => (
           <Query key={query._id} query={query}></Query>
         ))}

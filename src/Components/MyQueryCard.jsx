@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-
-const Query = ({ query }) => {
+import { MdDeleteForever } from "react-icons/md";
+import { CiEdit } from "react-icons/ci";
+const MyQueryCard = ({ query }) => {
   const { name, photo, brand, recommendationCount } = query;
   return (
     <div className="card shadow-xl">
@@ -27,4 +28,4 @@ const Query = ({ query }) => {
   );
 };
 
-export default Query;
+export default MyQueryCard;

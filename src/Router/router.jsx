@@ -10,6 +10,7 @@ import MyRecommendations from "../Layouts/MyRecommendations/MyRecommendations";
 import AddQuery from "../Layouts/AddQuery/AddQuery";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import QueryDetails from "../Pages/QueryDetails/QueryDetails";
+import UpdateQuery from "../Pages/UpdateQuery/UpdateQuery";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
             {
                 path:"/queryDetails",
                 element:<QueryDetails></QueryDetails>
+            },
+            {
+                path:"/updateQuery",
+                element:<UpdateQuery></UpdateQuery>
             }
         ]
     }

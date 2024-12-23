@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Query = ({ query }) => {
+const RecentQueryCard = ({ query }) => {
   const { name, photo, brand, recommendationCount } = query;
   return (
     <div className="card shadow-xl">
@@ -27,4 +27,4 @@ const Query = ({ query }) => {
   );
 };
 
-export default Query;
+export default RecentQueryCard;

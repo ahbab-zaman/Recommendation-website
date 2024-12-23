@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import {  Pagination, Navigation } from "swiper/modules";
 import Slide from "./Slide";
 
 const Banner = () => {
@@ -27,19 +27,19 @@ const Banner = () => {
       onSwiper={(swiper) => console.log(swiper)}
     >
       <SwiperSlide>
-        <Slide image={banner1} text={"Compare Top-rated products and save time and money on your purchases"}></Slide>
+        <Slide image={banner1} button={"Start Review"} text={"Compare Top-rated products and save time and money on your purchases" }></Slide>
       </SwiperSlide>
       <SwiperSlide>
-        <Slide image={banner2} text={"Get recommendation backed by real user experiences and expert advice"}></Slide>
+        <Slide image={banner2} button={"Get your Query"} text={"Get recommendation backed by real user experiences and expert advice"}></Slide>
       </SwiperSlide>
       <SwiperSlide>
-        <Slide image={banner3} text={"Access handpick recommendations by industry professionals"}></Slide>
+        <Slide image={banner3} button={"Be a Productive person"} text={"Access handpick recommendations by industry professionals"}></Slide>
       </SwiperSlide>
       <SwiperSlide>
-        <Slide image={banner4} text={"Get the most recommended products at unbeatable price"}></Slide>
+        <Slide image={banner4} button={"Add Query"} text={"Get the most recommended products at unbeatable price"}></Slide>
       </SwiperSlide>
       <SwiperSlide>
-        <Slide image={banner5} text={"Discover recommendations for every season and occasion"}></Slide>
+        <Slide image={banner5} button={"Start Shopping"} text={"Discover recommendations for every season and occasion"}></Slide>
       </SwiperSlide>
     </Swiper>
   );
