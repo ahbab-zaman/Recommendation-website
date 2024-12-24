@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
-import { MdDeleteForever } from "react-icons/md";
-import { CiEdit } from "react-icons/ci";
 const MyQueryCard = ({ query }) => {
   const { name, photo, brand, recommendationCount } = query;
   return (
     <div className="card shadow-xl">
       <figure>
-        <img src={photo} alt="product" />
+        <img src={photo} className="w-full h-[400px]" alt="product" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">

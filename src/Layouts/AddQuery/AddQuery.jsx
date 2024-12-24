@@ -18,6 +18,7 @@ const AddQuery = () => {
       photo,
       title,
       boycott,
+      createdAt: new Date(),
       userInfo: {
         email: user?.email,
         name: user?.displayName,
@@ -29,9 +30,10 @@ const AddQuery = () => {
     console.log(queryDetails);
 
     axios
-      .post("http://localhost:5000/addBid", queryDetails)
+      .post(`${import.meta.env.VITE_API_URL}/addBid`, queryDetails)
       .then((data) => {
         console.log(data.data);
+        form.reset();
       })
       .catch((error) => {
         console.log(error);

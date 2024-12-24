@@ -5,7 +5,7 @@ const Query = ({ query }) => {
   return (
     <div className="card shadow-xl">
       <figure>
-        <img src={photo} alt="product" />
+        <img src={photo} className="h-[400px] w-full" alt="product" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">
