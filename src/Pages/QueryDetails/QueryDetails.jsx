@@ -8,6 +8,8 @@ const QueryDetails = () => {
   const queryInfo = useLoaderData();
   const { user } = useContext(AuthContext);
   const [showRecommendation, setShowRecommendation] = useState([]);
+  const [deleteRecommendation, setDeleteRecommendation] =
+    useState(showRecommendation);
   const { boycott, brand, name, createdAt, photo, title, _id, userInfo } =
     queryInfo;
 
@@ -16,7 +18,7 @@ const QueryDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setShowRecommendation(data);
+        setDeleteRecommendation(data);
       });
   }, []);
 
@@ -143,14 +145,17 @@ const QueryDetails = () => {
           </section>
         </div>
       </div>
-
-      <div className="p-4 ">
-        <h4 className="text-3xl font-semibold">See All The Recommendations made by people</h4>
-      </div>
+      {deleteRecommendation.length > 0 && (
+        <h4 className="text-3xl font-semibold">
+          See All The Recommendations made by people
+        </h4>
+      )}
       <div className="p-4 space-y-3">
-        {showRecommendation.map((recommendation) => (
+        {deleteRecommendation.map((recommendation) => (
           <Recommendation
             recommendation={recommendation}
+            deleteRecommendation={deleteRecommendation}
+            setDeleteRecommendation={setDeleteRecommendation}
             key={recommendation._id}
           ></Recommendation>
         ))}
