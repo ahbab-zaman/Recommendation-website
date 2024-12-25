@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Query = ({ query }) => {
-  const { name, photo, brand, recommendationCount } = query;
+  const { name, photo, brand, recommendationCount, _id } = query;
   return (
     <div className="card shadow-xl">
       <figure>
@@ -13,10 +13,10 @@ const Query = ({ query }) => {
         </h2>
         <p className="text-lg font-bold">{name}</p>
         <p className="text-lg font-semibold">
-          Recommend_count : {recommendationCount}
+          Customer Recommendation : {recommendationCount}
         </p>
         <div>
-          <Link to="/queryDetails">
+          <Link to={`/queryDetails/${_id}`}>
             <button className="px-4 py-2 rounded-full bg-[#1c1c1ccd] font-semibold text-white">
               Recommend
             </button>

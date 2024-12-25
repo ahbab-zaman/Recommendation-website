@@ -13,53 +13,55 @@ import QueryDetails from "../Pages/QueryDetails/QueryDetails";
 import UpdateQuery from "../Pages/UpdateQuery/UpdateQuery";
 
 const router = createBrowserRouter([
-    {
-        path:"/",
-        errorElement:<ErrorPage></ErrorPage>,
-        element:<MainLayout></MainLayout>,
-        children:[
-            {
-                path:"/",
-                element:<Home></Home>
-            },
-            {
-                path:"/login",
-                element:<Login></Login>
-            },
-            {
-                path:"/register",
-                element:<Register></Register>
-            },
-            {
-                path:"/queries",
-                element:<AllQueries></AllQueries>
-            },
-            {
-                path:"/myQueries",
-                element:<MyQueries></MyQueries>
-            },
-            {
-                path:"/recommendation",
-                element:<Recommendations></Recommendations>
-            },
-            {
-                path:"/myRecommendation",
-                element:<MyRecommendations></MyRecommendations>
-            },
-            {
-                path:"/addQuery",
-                element:<AddQuery></AddQuery>
-            },
-            {
-                path:"/queryDetails",
-                element:<QueryDetails></QueryDetails>
-            },
-            {
-                path:"/updateQuery",
-                element:<UpdateQuery></UpdateQuery>
-            }
-        ]
-    }
-])
+  {
+    path: "/",
+    errorElement: <ErrorPage></ErrorPage>,
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/queries",
+        element: <AllQueries></AllQueries>,
+      },
+      {
+        path: "/myQueries",
+        element: <MyQueries></MyQueries>,
+      },
+      {
+        path: "/recommendation",
+        element: <Recommendations></Recommendations>,
+      },
+      {
+        path: "/myRecommendation",
+        element: <MyRecommendations></MyRecommendations>,
+      },
+      {
+        path: "/addQuery",
+        element: <AddQuery></AddQuery>,
+      },
+      {
+        path: "/queryDetails/:id",
+        element: <QueryDetails></QueryDetails>,
+        loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/singleQuery/${params.id}`)
+      },
+      {
+        path: "/updateQuery/:id",
+        element: <UpdateQuery></UpdateQuery>,
+        loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/singleQuery/${params.id}`)
+      },
+    ],
+  },
+]);
 
 export default router;
