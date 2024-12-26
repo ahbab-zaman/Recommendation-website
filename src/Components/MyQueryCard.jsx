@@ -51,7 +51,7 @@ const MyQueryCard = ({ query, deleteQuery, setDeleteQuery }) => {
           Recommend_count : {recommendationCount}
         </p>
         <div>
-          <Link to="/queryDetails">
+          <Link to={`/queryDetails/${_id}`}>
             <button className="px-4 py-2 rounded-full bg-[#1c1c1ccd] font-semibold text-white">
               View Details
             </button>

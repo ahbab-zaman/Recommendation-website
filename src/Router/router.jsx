@@ -11,6 +11,7 @@ import AddQuery from "../Layouts/AddQuery/AddQuery";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import QueryDetails from "../Pages/QueryDetails/QueryDetails";
 import UpdateQuery from "../Pages/UpdateQuery/UpdateQuery";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/myQueries",
-        element: <MyQueries></MyQueries>,
+        element: (
+          <PrivateRoute>
+            <MyQueries></MyQueries>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/recommendation",
@@ -48,17 +53,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/addQuery",
-        element: <AddQuery></AddQuery>,
+        element: (
+          <PrivateRoute>
+            <AddQuery></AddQuery>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/queryDetails/:id",
         element: <QueryDetails></QueryDetails>,
-        loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/singleQuery/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/singleQuery/${params.id}`),
       },
       {
         path: "/updateQuery/:id",
         element: <UpdateQuery></UpdateQuery>,
-        loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/singleQuery/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/singleQuery/${params.id}`),
       },
     ],
   },

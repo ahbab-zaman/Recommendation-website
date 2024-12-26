@@ -2,45 +2,9 @@ import axios from "axios";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 
-const Recommendation = ({
-  recommendation,
-  deleteRecommendation,
-  setDeleteRecommendation,
-}) => {
+const Recommendation = ({ recommendation }) => {
   const { photo, product_name, current_time, reason, recommender_name, _id } =
     recommendation;
-
-  const handleDelete = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const deletedRecommendation = async () => {
-          const { data } = await axios.delete(
-            `${import.meta.env.VITE_API_URL}/deleteRecommendation/${id}`
-          );
-          if (data.deletedCount > 0) {
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success",
-            });
-            const remainingRecommendation = deleteRecommendation.filter(
-              (recommend) => recommend._id !== id
-            );
-            setDeleteRecommendation(remainingRecommendation);
-          }
-        };
-        deletedRecommendation();
-      }
-    });
-  };
   return (
     <div>
       <div className="p-4 "></div>
@@ -65,11 +29,6 @@ const Recommendation = ({
             Why should people choose it:{" "}
             <span className="text-yellow-500">{reason}</span>
           </p>
-          <div onClick={() => handleDelete(_id)} className="flex justify-end">
-            <button onClick={() => handleDelete(_id)} className="btn">
-              <MdDeleteForever className="text-[30px] text-[#2B3440]"></MdDeleteForever>
-            </button>
-          </div>
         </div>
       </div>
     </div>

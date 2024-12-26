@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const AddQuery = () => {
   const { user } = useContext(AuthContext);

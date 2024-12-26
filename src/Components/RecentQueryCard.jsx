@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const RecentQueryCard = ({ query }) => {
-  const { name, photo, brand, recommendationCount } = query;
+  const { name, photo, brand, recommendationCount,_id } = query;
   return (
     <div className="card shadow-xl">
       <figure>
@@ -16,7 +16,7 @@ const RecentQueryCard = ({ query }) => {
           Recommend_count : {recommendationCount}
         </p>
         <div>
-          <Link to="/queryDetails">
+          <Link to={`/queryDetails/${_id}`}>
             <button className="px-4 py-2 rounded-full bg-[#1c1c1ccd] font-semibold text-white">
               Recommend
             </button>

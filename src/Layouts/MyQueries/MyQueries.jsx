@@ -4,11 +4,13 @@ import bannerImg from "../../assets/banner.jpg";
 import axios from "axios";
 import { AuthContext } from "../../Provider/AuthProvider";
 import MyQueryCard from "../../Components/MyQueryCard";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 const MyQueries = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [queries, setQueries] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
-  const [deleteQuery, setDeleteQuery] = useState(queries)
+  const [deleteQuery, setDeleteQuery] = useState(queries);
   const { user } = useContext(AuthContext);
   useEffect(() => {
     const myQueries = async () => {
@@ -16,8 +18,10 @@ const MyQueries = () => {
         const { data } = await axios.get(
           `${import.meta.env.VITE_API_URL}/allQuery/${user?.email}`
         );
+        console.log(data);
         setDeleteQuery(data);
         setErrorMessage("");
+        navigate(location.state || "/");
       } catch (error) {
         if (error.response.status === 404) {
           setErrorMessage("No Queries Found");
@@ -73,7 +77,12 @@ const MyQueries = () => {
             </div>
             <div className="w-11/12 mx-auto grid lg:grid-cols-3 grid-col-1 py-6 gap-6">
               {deleteQuery.map((query) => (
-                <MyQueryCard deleteQuery={deleteQuery} setDeleteQuery={setDeleteQuery} query={query} key={query._id}></MyQueryCard>
+                <MyQueryCard
+                  deleteQuery={deleteQuery}
+                  setDeleteQuery={setDeleteQuery}
+                  query={query}
+                  key={query._id}
+                ></MyQueryCard>
               ))}
             </div>
           </div>

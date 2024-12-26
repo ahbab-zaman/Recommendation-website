@@ -6,20 +6,21 @@ import Swal from "sweetalert2";
 
 const MyRecommendations = () => {
   const { user } = useContext(AuthContext);
-  const [recommend, setRecommend] = useState([]);
-  const [deleteRecommendation, setDeleteRecommendation] =
-  useState(recommend);
+  // const [recommend, []] = useState([]);
+  const [deleteRecommendation, setDeleteRecommendation] = useState([]);
   useEffect(() => {
-    const fetchedData = async () => {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/allRecommend/${user?.email}`
-      );
-      setDeleteRecommendation(data);
-    };
-    fetchedData();
+    if (user?.email) {
+      const fetchedData = async () => {
+        const { data } = await axios.get(
+          `${import.meta.env.VITE_API_URL}/allRecommend/${user?.email}`
+        );
+        setDeleteRecommendation(data);
+      };
+      fetchedData();
+    }
   }, [user]);
 
-  const handleDelete = (id) => {
+  const handleDelete = (item) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -31,8 +32,9 @@ const MyRecommendations = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         const deletedRecommendation = async () => {
-          const { data } = await axios.delete(
-            `${import.meta.env.VITE_API_URL}/deleteRecommendation/${id}`
+          const { data } = await axios.put(
+            `${import.meta.env.VITE_API_URL}/decreaseCount/${item._id}`,
+            item
           );
           if (data.deletedCount > 0) {
             Swal.fire({
@@ -41,7 +43,7 @@ const MyRecommendations = () => {
               icon: "success",
             });
             const remainingRecommendation = deleteRecommendation.filter(
-              (recommend) => recommend._id !== id
+              (recommend) => recommend._id !== item._id
             );
             setDeleteRecommendation(remainingRecommendation);
           }
@@ -78,7 +80,7 @@ const MyRecommendations = () => {
                 </td>
                 <td>
                   <button
-                    onClick={() => handleDelete(reco._id)}
+                    onClick={() => handleDelete(reco)}
                     className="btn rounded-full"
                   >
                     <AiFillDelete className="text-3xl" />
