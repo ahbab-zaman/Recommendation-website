@@ -10,7 +10,7 @@ const Offer = () => {
         <p className="font-semibold">These are support by our team members</p>
       </div>
       <div className="bg-[#2B3440] py-12 px-4 text-white">
-        <div className="flex justify-between items-center gap-6 mx-auto">
+        <div className="flex lg:flex-nowrap flex-wrap justify-between items-center gap-6 mx-auto w-11/12">
           <div className="flex items-center gap-3">
             <span>
               <FaTruckFast className="text-[50px]"></FaTruckFast>

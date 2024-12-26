@@ -6,24 +6,23 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import MyQueryCard from "../../Components/MyQueryCard";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 const MyQueries = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
   const [queries, setQueries] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const [gridLayout, setGridLayout] = useState("grid-cols-3");
   const [deleteQuery, setDeleteQuery] = useState(queries);
   const { user } = useContext(AuthContext);
   useEffect(() => {
     const myQueries = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/allQuery/${user?.email}`
+          `${import.meta.env.VITE_API_URL}/allQuery/${user?.email}`,
+          { withCredentials: true }
         );
         console.log(data);
         setDeleteQuery(data);
         setErrorMessage("");
-        navigate(location.state || "/");
       } catch (error) {
-        if (error.response.status === 404) {
+        if (error.response.status === 401) {
           setErrorMessage("No Queries Found");
         } else {
           console.log(error);
@@ -34,6 +33,10 @@ const MyQueries = () => {
       myQueries();
     }
   }, [user]);
+
+  const handleColumns = (col) => {
+    setGridLayout(col);
+  };
   return (
     <div className="space-y-2">
       <div>
@@ -75,7 +78,27 @@ const MyQueries = () => {
                 from experts and peers alike."
               </p>
             </div>
-            <div className="w-11/12 mx-auto grid lg:grid-cols-3 grid-col-1 py-6 gap-6">
+            <div className="w-11/12 mx-auto flex lg:justify-end justify-center items-center gap-2">
+              <button
+                onClick={() => handleColumns("grid-cols-1")}
+                className="btn text-lg font-semibold"
+              >
+                1 columns
+              </button>
+              <button
+                onClick={() => handleColumns("grid-cols-2")}
+                className="btn text-lg font-semibold"
+              >
+                2 columns
+              </button>
+              <button
+                onClick={() => handleColumns("grid-cols-3")}
+                className="btn text-lg font-semibold"
+              >
+                3 columns
+              </button>
+            </div>
+            <div className={`w-11/12 mx-auto grid ${gridLayout} grid-flow-row-dense py-6 gap-6`}>
               {deleteQuery.map((query) => (
                 <MyQueryCard
                   deleteQuery={deleteQuery}

@@ -1,8 +1,9 @@
-# React + Vite
+**1. Project Name** : **Recommendo**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**2. Live link** : [https://recommendation-platform-1f3cf.firebaseapp.com/recommendation](https://recommendation-platform-1f3cf.firebaseapp.com/recommendation)
 
-Currently, two official plugins are available:
+**3. Purpose** : This is a user friendly website of query and recommendation platform for. User can visit here to see the latest products and write their reviews or recommendations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**4. Key Features** : 1. Add Query, 2. Add Your Recommendation, 3. Search functionalities, 4. Change the grid layout 
+
+**5. I used some of the npm packages. react-lootie, sweet-alert-2, swiper, axios etc**

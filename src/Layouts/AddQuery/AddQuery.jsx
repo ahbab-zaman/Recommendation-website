@@ -31,7 +31,9 @@ const AddQuery = () => {
     console.log(queryDetails);
 
     axios
-      .post(`${import.meta.env.VITE_API_URL}/addBid`, queryDetails)
+      .post(`${import.meta.env.VITE_API_URL}/addBid`, queryDetails, {
+        withCredentials: true,
+      })
       .then((data) => {
         console.log(data.data);
         form.reset();
