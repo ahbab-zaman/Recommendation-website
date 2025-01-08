@@ -7,17 +7,17 @@ const Query = ({ query }) => {
       <figure>
         <img src={photo} className="h-[400px] w-full" alt="product" />
       </figure>
-      <div className="card-body">
+      <div className="card-body lg:p-4 p-1">
         <h2 className="card-title">
           <div className="badge badge-secondary">{brand}</div>
         </h2>
         <p className="text-lg font-bold">{name}</p>
-        <p className="text-lg font-semibold">
+        <p className="lg:text-lg text-sm font-semibold">
           Customer Recommendation : {recommendationCount}
         </p>
         <div>
           <Link to={`/queryDetails/${_id}`}>
-            <button className="px-4 py-2 rounded-full bg-[#1c1c1ccd] font-semibold text-white">
+            <button className="lg:px-4 px-2 lg:py-2 py-1 rounded-full bg-[#1c1c1ccd] font-semibold text-white">
               Recommend
             </button>
           </Link>

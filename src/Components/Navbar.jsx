@@ -29,20 +29,26 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <NavLink>Home</NavLink>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink>Queries</NavLink>
+              <NavLink to="/queries">Queries</NavLink>
             </li>
-            <li>
-              <NavLink>Recommendation for me</NavLink>
-            </li>
-            <li>
-              <NavLink>My Queries</NavLink>
-            </li>
-            <li>
-              <NavLink>My Recommendation</NavLink>
-            </li>
+            {user && (
+              <li>
+                <NavLink to={`/recommendation`}>Recommendation for me</NavLink>
+              </li>
+            )}
+            {user && (
+              <li>
+                <NavLink to="/myQueries">My Queries</NavLink>
+              </li>
+            )}
+            {user && (
+              <li>
+                <NavLink to="/myRecommendation">My Recommendation</NavLink>
+              </li>
+            )}
           </ul>
         </div>
         <img className="w-8" src={icon} alt="" />

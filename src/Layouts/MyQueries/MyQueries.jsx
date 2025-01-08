@@ -78,7 +78,7 @@ const MyQueries = () => {
                 from experts and peers alike."
               </p>
             </div>
-            <div className="w-11/12 mx-auto flex lg:justify-end justify-center items-center gap-2">
+            <div className="lg:w-11/12 w-full mx-auto flex lg:justify-end justify-center items-center gap-2">
               <button
                 onClick={() => handleColumns("grid-cols-1")}
                 className="btn text-lg font-semibold"
@@ -98,7 +98,7 @@ const MyQueries = () => {
                 3 columns
               </button>
             </div>
-            <div className={`w-11/12 mx-auto grid ${gridLayout} grid-flow-row-dense py-6 gap-6`}>
+            <div className={`w-11/12 mx-auto grid ${gridLayout} grid-cols-1 py-6 gap-6`}>
               {deleteQuery.map((query) => (
                 <MyQueryCard
                   deleteQuery={deleteQuery}

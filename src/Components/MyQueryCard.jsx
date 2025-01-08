@@ -42,12 +42,12 @@ const MyQueryCard = ({ query, deleteQuery, setDeleteQuery }) => {
       <figure>
         <img src={photo} className="w-full h-[400px]" alt="product" />
       </figure>
-      <div className="card-body p-5">
+      <div className="card-body lg:p-5 p-0">
         <h2 className="card-title">
           <div className="badge badge-secondary">{brand}</div>
         </h2>
         <p className="text-lg font-bold">{name}</p>
-        <p className="text-lg font-semibold">
+        <p className="lg:text-lg  text-sm font-semibold">
           Recommend_count : {recommendationCount}
         </p>
         <div>
@@ -57,7 +57,7 @@ const MyQueryCard = ({ query, deleteQuery, setDeleteQuery }) => {
             </button>
           </Link>
         </div>
-        <div className="flex justify-between items-center mt-2">
+        <div className="flex lg:flex-row flex-col lg:justify-between justify-center gap-2 items-center mt-2">
           <button onClick={() => handleDelete(_id)} className="btn">
             <MdDeleteForever className="text-[30px]"></MdDeleteForever>
           </button>

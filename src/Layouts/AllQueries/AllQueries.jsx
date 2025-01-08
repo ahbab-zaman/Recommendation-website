@@ -25,7 +25,7 @@ const AllQueries = () => {
   };
 
   return (
-    <div className="w-11/12 mx-auto">
+    <div className="lg:w-11/12 w-full mx-auto">
       <div className="p-4 text-center">
         <h4 className="text-3xl font-semibold">Explore All Our Queries</h4>
         <p className="font-semibold">
@@ -60,7 +60,7 @@ const AllQueries = () => {
             onClick={() => handleColumns("grid-cols-2")}
             className="btn text-lg font-semibold"
           >
-            2 column
+            2 columns
           </button>
           <button
             onClick={() => handleColumns("grid-cols-3")}
@@ -70,7 +70,7 @@ const AllQueries = () => {
           </button>
         </div>
       </div>
-      <div className={`grid lg:${gridLayout} grid-cols-1 py-6 gap-6`}>
+      <div className={`grid ${gridLayout} py-6 gap-6`}>
         {queries.map((query) => (
           <Query key={query._id} query={query}></Query>
         ))}
