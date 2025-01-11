@@ -3,9 +3,19 @@ import { Link } from "react-router-dom";
 const Query = ({ query }) => {
   const { name, photo, brand, recommendationCount, _id } = query;
   return (
-    <div className="card shadow-xl">
-      <figure >
-        <img src={photo} className="h-[200px] w-3/5 mx-auto object-contain" alt="product" />
+    <div
+      data-aos="fade-zoom-in"
+      data-aos-easing="ease-in-back"
+      data-aos-delay="100"
+      data-aos-offset="0"
+      className="card shadow-xl"
+    >
+      <figure>
+        <img
+          src={photo}
+          className="h-[200px] w-3/5 mx-auto object-contain"
+          alt="product"
+        />
       </figure>
       <div className="card-body lg:p-4 p-1">
         <h2 className="card-title">

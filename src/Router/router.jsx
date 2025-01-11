@@ -12,6 +12,9 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import QueryDetails from "../Pages/QueryDetails/QueryDetails";
 import UpdateQuery from "../Pages/UpdateQuery/UpdateQuery";
 import PrivateRoute from "./PrivateRoute";
+import About from "../Components/About";
+import AboutUs from "../Layouts/AboutUs/AboutUs";
+import Contact from "../Layouts/Contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +74,14 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_URL}/singleQuery/${params.id}`),
       },
+      {
+        path:"/about",
+        element:<AboutUs></AboutUs>
+      },
+      {
+        path:"/contact",
+        element:<Contact></Contact>
+      }
     ],
   },
 ]);

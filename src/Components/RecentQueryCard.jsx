@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 
 const RecentQueryCard = ({ query }) => {
-  const { name, photo, brand, recommendationCount,_id } = query;
+  const { name, photo, brand, recommendationCount, _id } = query;
   return (
-    <div className="card shadow-xl">
+    <div
+      data-aos="fade-down"
+      data-aos-offset="120"
+      data-aos-duration="1000"
+      data-aos-easing="ease-out-cubic"
+      data-aos-delay="400"
+      className="card shadow-xl"
+    >
       <figure>
         <img className="h-[200px] w-3/5 mx-auto" src={photo} alt="product" />
       </figure>

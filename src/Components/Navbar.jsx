@@ -55,21 +55,12 @@ const Navbar = () => {
             <li>
               <NavLink to="/queries">Queries</NavLink>
             </li>
-            {user && (
-              <li>
-                <NavLink to={`/recommendation`}>Recommendation for me</NavLink>
-              </li>
-            )}
-            {user && (
-              <li>
-                <NavLink to="/myQueries">My Queries</NavLink>
-              </li>
-            )}
-            {user && (
-              <li>
-                <NavLink to="/myRecommendation">My Recommendation</NavLink>
-              </li>
-            )}
+            <li>
+              <NavLink to="/about">About Us</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact">Contact Us</NavLink>
+            </li>
           </ul>
         </div>
         <img className="w-8" src={icon} alt="" />
@@ -83,21 +74,12 @@ const Navbar = () => {
           <li>
             <NavLink to="/queries">Queries</NavLink>
           </li>
-          {user && (
-            <li>
-              <NavLink to={`/recommendation`}>Recommendation for me</NavLink>
-            </li>
-          )}
-          {user && (
-            <li>
-              <NavLink to="/myQueries">My Queries</NavLink>
-            </li>
-          )}
-          {user && (
-            <li>
-              <NavLink to="/myRecommendation">My Recommendation</NavLink>
-            </li>
-          )}
+          <li>
+            <NavLink to="/about">About Us</NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact">Contact Us</NavLink>
+          </li>
         </ul>
       </div>
       <div className="navbar-end">
@@ -110,40 +92,42 @@ const Navbar = () => {
                 className="btn btn-ghost btn-circle avatar"
               >
                 <div className="w-10 rounded-full">
-                  <img
-                    alt="User Profile Image"
-                    src={user?.photoURL}
-                  />
+                  <img alt="User Profile Image" src={user?.photoURL} />
                 </div>
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow space-y-2"
               >
-                <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
-                  <a>Logout</a>
-                </li>
+                {user && (
+                  <li>
+                    <NavLink to={`/recommendation`}>
+                      Recommendation for me
+                    </NavLink>
+                  </li>
+                )}
+                {user && (
+                  <li>
+                    <NavLink to="/myQueries">My Queries</NavLink>
+                  </li>
+                )}
+                {user && (
+                  <li>
+                    <NavLink to="/myRecommendation">My Recommendation</NavLink>
+                  </li>
+                )}
               </ul>
             </div>
             <div>
               <Link to="/login">
-            <button
-              onClick={userSignOut}
-              className="px-4 p-2 bg-neutral rounded-none text-white font-semibold"
-            >
-              Logout
-            </button>
-          </Link>
-          </div>
+                <button
+                  onClick={userSignOut}
+                  className="px-4 p-2 bg-neutral rounded-none text-white font-semibold"
+                >
+                  Logout
+                </button>
+              </Link>
+            </div>
           </div>
         ) : (
           <Link to="/login">

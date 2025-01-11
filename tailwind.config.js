@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         "exo": ["Exo 2", "serif"],
       },
+      backgroundImage : {
+        "aboutBanner": "url('./assets/aboutBanner.jpg')"
+      },
     },
   },
   plugins: [require("daisyui")],
