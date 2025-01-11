@@ -5,7 +5,6 @@ import Query from "../../Components/Query";
 const AllQueries = () => {
   const [queries, setQueries] = useState([]);
   const [search, setSearch] = useState("");
-  const [gridLayout, setGridLayout] = useState("grid-cols-3");
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,9 +19,6 @@ const AllQueries = () => {
     fetchData();
   }, [search]);
 
-  const handleColumns = (col) => {
-    setGridLayout(col);
-  };
 
   return (
     <div className="lg:w-11/12 w-full mx-auto">
@@ -45,32 +41,14 @@ const AllQueries = () => {
             aria-label="Enter Product Name"
           />
 
-          <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
+          <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-neutral rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
             Search
           </button>
         </div>
-        <div className="flex justify-center items-center gap-2">
-          <button
-            onClick={() => handleColumns("grid-col-1")}
-            className="btn text-lg font-semibold"
-          >
-            1 columns
-          </button>
-          <button
-            onClick={() => handleColumns("grid-cols-2")}
-            className="btn text-lg font-semibold"
-          >
-            2 columns
-          </button>
-          <button
-            onClick={() => handleColumns("grid-cols-3")}
-            className="btn text-lg font-semibold"
-          >
-            3 columns
-          </button>
-        </div>
+
+        {/* sort */}
       </div>
-      <div className={`grid ${gridLayout} py-6 gap-6`}>
+      <div className={`grid lg:grid-cols-4 grid-cols-1 py-6 gap-6`}>
         {queries.map((query) => (
           <Query key={query._id} query={query}></Query>
         ))}

@@ -21,7 +21,7 @@ const RecentQueries = () => {
           These are our recent queries reviewed by all customers
         </p>
       </div>
-      <div className="w-11/12 mx-auto grid lg:grid-cols-3 gird-col-1 gap-4">{
+      <div className="w-11/12 mx-auto grid lg:grid-cols-4 gird-col-1 gap-4">{
         recentQueries.map(query => <RecentQueryCard query={query} key={query._id}></RecentQueryCard>)
       }</div>
     </div>

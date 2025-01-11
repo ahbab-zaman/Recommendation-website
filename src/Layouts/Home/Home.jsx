@@ -5,7 +5,7 @@ import RecentQueries from "../../Components/RecentQueries";
 
 const Home = () => {
     return (
-        <div className="py-6">
+        <div className="pb-6">
             <Banner></Banner>
             <RecentQueries></RecentQueries>
             <Offer></Offer>

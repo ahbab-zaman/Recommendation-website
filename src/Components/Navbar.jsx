@@ -1,11 +1,32 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import icon from "../assets/icon (2).png";
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const { user, userSignOut } = useContext(AuthContext);
   return (
-    <div className="navbar bg-base-100 sticky top-0 z-20">
+    <div
+      className={`fixed top-0 w-full transition-colors duration-300 z-10 navbar font-semibold ${
+        isScrolled ? "bg-neutral text-white " : "bg-white text-black"
+      }`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -81,17 +102,52 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <Link to="/login">
+          <div className="flex items-center gap-2">
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="User Profile Image"
+                    src={user?.photoURL}
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <a>Logout</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <Link to="/login">
             <button
               onClick={userSignOut}
-              className="px-4 p-2 bg-[#2B3440] rounded-none text-white font-semibold"
+              className="px-4 p-2 bg-neutral rounded-none text-white font-semibold"
             >
               Logout
             </button>
           </Link>
+          </div>
+          </div>
         ) : (
           <Link to="/login">
-            <button className="px-4 p-2 bg-[#2B3440] rounded-none text-white font-semibold">
+            <button className="px-4 p-2 bg-neutral rounded-none text-white font-semibold">
               Login
             </button>
           </Link>

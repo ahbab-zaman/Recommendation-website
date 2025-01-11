@@ -5,19 +5,19 @@ const RecentQueryCard = ({ query }) => {
   return (
     <div className="card shadow-xl">
       <figure>
-        <img className="h-[400px] w-full" src={photo} alt="product" />
+        <img className="h-[200px] w-3/5 mx-auto" src={photo} alt="product" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">
           <div className="badge badge-secondary">{brand}</div>
         </h2>
         <p className="text-lg font-bold">{name}</p>
-        <p className="text-lg font-semibold">
+        <p className="text-base font-semibold">
           Recommend_count : {recommendationCount}
         </p>
         <div>
           <Link to={`/queryDetails/${_id}`}>
-            <button className="px-4 py-2 rounded-full bg-[#1c1c1ccd] font-semibold text-white">
+            <button className="px-3 py-[6px] rounded-full bg-neutral font-semibold text-white">
               Recommend
             </button>
           </Link>

@@ -1,24 +1,22 @@
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 const Slide = ({ image, text, button }) => {
   return (
-    <div
-      className="w-full bg-center bg-cover bg-no-repeat h-[35rem]"
-      style={{
-        backgroundImage: `url(${image})`,
-      }}
-    >
-      <div className="flex items-center justify-center w-full h-full bg-gray-900/70">
-        <div className="text-center">
-          <h1 className="font-semibold text-4xl text-white italic ">
-            {text}
-          </h1>
-          <br />
-          <Link to="/addQuery"
-            className="w-full px-5 py-4 mt-4 text-lg font-bold text-white uppercase transition-colors duration-300 transform bg-gray-600 rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500"
-          >
-            {button}
-          </Link>
-        </div>
+    <div className="flex lg:flex-row flex-col-reverse justify-center items-center pt-6">
+      <div data-aos="fade-right" className="lg:w-3/5 w-full space-y-4">
+        <h2 className="lg:text-5xl text-3xl font-bold ">{text}</h2>
+        <button className="bg-neutral text-white font-semibold px-4 py-2">
+          {button}
+        </button>
+      </div>
+      <div className="lg:w-[40%] w-full">
+        <motion.img
+          className="w-full"
+          src={image}
+          alt=""
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+        />
       </div>
     </div>
   );
