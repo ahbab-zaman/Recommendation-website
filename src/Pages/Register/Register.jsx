@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-
+import signupAnimation from "./Animation - 1736605628958.json";
+import Lottie from "lottie-react";
+import Loading from "../Loading/Loading";
 const Register = () => {
-  const { user, userRegister } = useContext(AuthContext);
+  const { user, userRegister, loading } = useContext(AuthContext);
   const navigate = useNavigate();
-
+  if (loading) return <Loading></Loading>;
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -17,7 +19,7 @@ const Register = () => {
     userRegister(email, password)
       .then((res) => {
         console.log(res.user);
-        navigate('/')
+        navigate("/");
       })
       .catch((error) => {
         console.log(error.code);
@@ -26,14 +28,10 @@ const Register = () => {
 
   return (
     <div>
-      <div className="py-4">
-        <h2 className="text-3xl text-center font-semibold">Registration</h2>
-      </div>
-
-      <div>
-        <div className="hero">
+      <div className="flex lg:flex-row flex-col-reverse justify-center items-center">
+        <div className="hero lg:w-3/4 w-11/12 mx-auto">
           <div className="hero-content w-full flex-col">
-            <div className="card shrink-0 shadow-2x w-3/4 border mx-auto">
+            <div className="card shrink-0 shadow-2x w-11/12 border mx-auto">
               <form
                 onSubmit={handleRegister}
                 className="card-body w-full mx-auto"
@@ -86,12 +84,12 @@ const Register = () => {
                     required
                   />
                 </div>
-                <div className="form-control mt-6">
-                  <button className="btn bg-[#1c1c1ccd] text-[#fff] font-semibold">
+                <div className="form-control mt-4">
+                  <button className="btn bg-neutral text-[#fff] font-semibold">
                     Register
                   </button>
                 </div>
-                <div className="py-4">
+                <div className="pt-4">
                   <p className="text-center font-semibold">
                     Already have an account ?{" "}
                     <Link className="text-blue-500 link" to="/login">
@@ -102,6 +100,9 @@ const Register = () => {
               </form>
             </div>
           </div>
+        </div>
+        <div className="lg:w-1/2 w-11/12 mx-auto">
+          <Lottie animationData={signupAnimation} loop={true} />
         </div>
       </div>
     </div>

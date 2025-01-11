@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "exo": ["Exo 2", "serif"],
+        "merri": ["Source Sans 3", "serif"],
       },
       backgroundImage : {
         "aboutBanner": "url('./assets/aboutBanner.jpg')"

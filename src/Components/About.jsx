@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import about from "../assets/about.jpg";
 const About = () => {
   return (
-    <div className="w-11/12 mx-auto flex gap-5 py-8">
-      <div className="w-1/2">
+    <div className="w-11/12 mx-auto flex lg:flex-row flex-col gap-5 py-8">
+      <div className="lg:w-1/2 w-11/12 mx-auto">
         <img src={about} alt="" />
       </div>
-      <div className="w-1/2 space-y-6">
+      <div className="lg:w-1/2 w-11/12 mx-auto space-y-6">
         <h2 className="text-3xl font-semibold">A FEW WORD ABOUT US</h2>
         <p className="text-xl font-light">
           Recommendo is a global product purchasing related website. The main

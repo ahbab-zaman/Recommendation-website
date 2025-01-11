@@ -5,11 +5,14 @@ import Query from "../../Components/Query";
 const AllQueries = () => {
   const [queries, setQueries] = useState([]);
   const [search, setSearch] = useState("");
+  const [sort, setSort] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/allQueries?search=${search}`
+          `${
+            import.meta.env.VITE_API_URL
+          }/allQueries?search=${search}&sort=${sort}`
         );
         setQueries(data);
       } catch (error) {
@@ -17,11 +20,10 @@ const AllQueries = () => {
       }
     };
     fetchData();
-  }, [search]);
-
+  }, [search, sort]);
 
   return (
-    <div className="lg:w-11/12 w-full mx-auto">
+    <div className="w-11/12 mx-auto">
       <div className="p-4 text-center">
         <h4 className="text-3xl font-semibold">Explore All Our Queries</h4>
         <p className="font-semibold">
@@ -45,8 +47,15 @@ const AllQueries = () => {
             Search
           </button>
         </div>
-
         {/* sort */}
+        <div>
+          <button
+            onClick={() => setSort(!sort)}
+            className="px-4 py-2 rounded-xl bg-neutral text-white font-semibold hover:bg-[#ffffff09] hover:border hover:text-black hover:transition-colors hover:duration-300"
+          >
+            Sort By Count
+          </button>
+        </div>
       </div>
       <div className={`grid lg:grid-cols-4 grid-cols-1 py-6 gap-6`}>
         {queries.map((query) => (

@@ -15,6 +15,7 @@ const Banner = () => {
       spaceBetween={30}
       navigation={true}
       autoplay={true}
+      speed={1000}
       loop={true}
       pagination={{
         clickable: true,

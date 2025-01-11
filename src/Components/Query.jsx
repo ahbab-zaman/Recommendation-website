@@ -17,7 +17,7 @@ const Query = ({ query }) => {
           alt="product"
         />
       </figure>
-      <div className="card-body lg:p-4 p-1">
+      <div className="card-body p-4">
         <h2 className="card-title">
           <div className="badge badge-secondary">{brand}</div>
         </h2>

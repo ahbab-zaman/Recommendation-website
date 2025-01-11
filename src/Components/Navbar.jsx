@@ -122,7 +122,7 @@ const Navbar = () => {
               <Link to="/login">
                 <button
                   onClick={userSignOut}
-                  className="px-4 p-2 bg-neutral rounded-none text-white font-semibold"
+                  className={`px-4 p-2 bg-neutral rounded-none text-white font-semibold ${ isScrolled ? "border text-white " : ""}`}
                 >
                   Logout
                 </button>
@@ -131,7 +131,7 @@ const Navbar = () => {
           </div>
         ) : (
           <Link to="/login">
-            <button className="px-4 p-2 bg-neutral rounded-none text-white font-semibold">
+            <button className={`px-4 p-2 bg-neutral rounded-none text-white font-semibold ${ isScrolled ? "border text-white " : ""}`}>
               Login
             </button>
           </Link>

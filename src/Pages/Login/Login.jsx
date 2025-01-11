@@ -2,11 +2,15 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import loginAnimation from "./Animation - 1736604782995.json";
 import googleImg from "../../assets/google.png";
 import { auth } from "../../Firebase/Firebase.init";
+import Lottie from "lottie-react";
+import Loading from "../Loading/Loading";
 
 const Login = () => {
-  const { user, setUser, userSignIn } = useContext(AuthContext);
+  const { user, setUser, userSignIn,loading } = useContext(AuthContext);
+  if(loading) return <Loading></Loading>
   const location = useLocation();
   const navigation = useNavigate();
   const provider = new GoogleAuthProvider();
@@ -20,6 +24,8 @@ const Login = () => {
         console.log("Invalid User", error.code);
       });
   };
+
+
   const navigate = useNavigate();
   const handleLogin = (event) => {
     event.preventDefault();
@@ -38,13 +44,10 @@ const Login = () => {
   };
   return (
     <div>
-      <div>
-        <h2 className="text-3xl text-center font-semibold">Login</h2>
-      </div>
-      <div>
-        <div className="hero">
+      <div className="flex lg:flex-row flex-col-reverse justify-center items-center">
+        <div className="hero w-full">
           <div className="hero-content w-full flex-col">
-            <div className="card shrink-0 shadow-2x w-3/4 border mx-auto">
+            <div className="card shrink-0 shadow-2x w-[90%] border mx-auto">
               <form onSubmit={handleLogin} className="card-body w-full mx-auto">
                 <div className="form-control">
                   <label className="label">
@@ -69,14 +72,9 @@ const Login = () => {
                     className="input input-bordered"
                     required
                   />
-                  <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
-                      Forgot password?
-                    </a>
-                  </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn bg-[#1c1c1ccd] text-[#fff] font-semibold">
+                  <button className="btn bg-neutral text-[#fff] font-semibold">
                     Login
                   </button>
                 </div>
@@ -93,7 +91,7 @@ const Login = () => {
                     Signin With Google
                   </div>
                 </button>
-                <div className="py-4">
+                <div className="pt-4">
                   <p className="text-center font-semibold">
                     New to this account ?{" "}
                     <Link className="text-blue-500 link" to="/register">
@@ -104,6 +102,13 @@ const Login = () => {
               </form>
             </div>
           </div>
+        </div>
+        <div className="lg:w-1/2 w-3/4 mx-auto">
+          <Lottie
+            classID="w-11/12"
+            animationData={loginAnimation}
+            loop={true}
+          />
         </div>
       </div>
     </div>

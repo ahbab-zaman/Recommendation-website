@@ -9,12 +9,12 @@ import card6 from "../../assets/card6.jpg"
 const AboutUs = () => {
   return (
     <div> 
-      <div className="bg-aboutBanner lg:bg-cover h-[250px] bg-no-repeat flex justify-start items-center">
+      <div className="bg-aboutBanner bg-cover h-[250px] bg-no-repeat flex justify-start items-center">
         <h3 className="text-6xl font-bold px-4 text-white">ABOUT US</h3>
       </div>
 
-      <div className="flex gap-5 py-8 w-11/12 mx-auto">
-        <div className="w-1/2 space-y-4">
+      <div className="flex lg:flex-row flex-col gap-5 py-8 w-11/12 mx-auto">
+        <div className="lg:w-1/2 w-11/12 mx-auto space-y-4">
           <h3 className="text-4xl font-semibold">OVERVIEW</h3>
           <p className="text-xl font-semibold">
             Recommendao is the leading provider of translation and educational
@@ -26,7 +26,7 @@ const AboutUs = () => {
             worldwide. Whatever your language needs are, we are here to help.
           </h4>
         </div>
-        <div className="w-1/2">
+        <div className="lg:w-1/2 w-11/12 mx-auto">
           <img src={overview} alt="" />
         </div>
       </div>
