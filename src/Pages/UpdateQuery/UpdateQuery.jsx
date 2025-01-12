@@ -2,12 +2,13 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import Loading from "../Loading/Loading";
 
 const UpdateQuery = () => {
   const { user } = useContext(AuthContext);
   const updatedQuery = useLoaderData();
   const navigate = useNavigate();
-  console.log(updatedQuery);
+  if(loading) return <Loading></Loading>
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;

@@ -8,6 +8,7 @@ import {
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../Firebase/Firebase.init";
 import axios from "axios";
+import Loading from "../Pages/Loading/Loading";
 
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {

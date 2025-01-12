@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import Recommendation from "../../Components/Recommendation";
+import Loading from "../Loading/Loading";
 
 const QueryDetails = () => {
   const queryInfo = useLoaderData();
@@ -11,6 +12,7 @@ const QueryDetails = () => {
   const { boycott, brand, name, createdAt, photo, title, _id, userInfo } =
     queryInfo;
 
+    if(loading) return <Loading></Loading> 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/recommend/${_id}`)
       .then((res) => res.json())

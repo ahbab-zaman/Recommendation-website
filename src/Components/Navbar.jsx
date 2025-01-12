@@ -2,8 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import icon from "../assets/icon (2).png";
+import Loading from "../Pages/Loading/Loading";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +22,9 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const { user, userSignOut } = useContext(AuthContext);
+  const { user, userSignOut,loading } = useContext(AuthContext);
+
+  if(loading) return <Loading></Loading>
   return (
     <div
       className={`fixed top-0 w-full transition-colors duration-300 z-10 navbar font-semibold ${
