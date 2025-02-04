@@ -24,16 +24,16 @@
 
 ## 🚀 Live Demo
 
-🔗 **[Visit Recommendo](https://recommendation-platform-1f3cf.firebaseapp.com/recommendation)**  
+🔗 **[Visit Recommendo](https://recommendation-platform-1f3cf.firebaseapp.com/recommendation)**
 
 ---
 
 ## ✨ Features
 
-- 📝 **Add Query** – Users can post their queries about different products.  
-- 💡 **Add Your Recommendation** – Users can respond to queries with recommendations.  
-- 🔍 **Search Functionalities** – Easily find queries and recommendations using the search feature.  
-- 🎨 **Change Grid Layout** – Customize the display layout as per user preference.  
+- 📝 **Add Query** – Users can post their queries about different products.
+- 💡 **Add Your Recommendation** – Users can respond to queries with recommendations.
+- 🔍 **Search Functionalities** – Easily find queries and recommendations using the search feature.
+- 🎨 **Change Grid Layout** – Customize the display layout as per user preference.
 
 ---
 
@@ -41,10 +41,26 @@
 
 To run this project locally, follow these steps:
 
-1. **Clone the repository**  
-   ```bash
-   git clone https://github.com/your-username/recommendo.git
-   cd recommendo
+**Clone the repository**
+`bash
+git clone https://github.com/your-username/recommendo.git
+cd recommendo
+npm install
+npm run dev
+
+## 🤝 Contributing
+
+Contributions are welcome! To contribute:
+
+Fork the repository
+Create a new branch (git checkout -b feature-branch)
+Commit your changes (git commit -m "Add new feature")
+Push to the branch (git push origin feature-branch)
+Open a pull request
+
+## 📜 License
+
+This project is licensed under the ISC License.
 
 
 ## 📦 Dependencies
@@ -73,3 +89,20 @@ To run this project locally, follow these steps:
   "swiper": "^11.1.15"
 }
 
+"devDependencies": {
+  "@eslint/js": "^9.17.0",
+  "@types/react": "^18.3.17",
+  "@types/react-dom": "^18.3.5",
+  "@vitejs/plugin-react": "^4.3.4",
+  "autoprefixer": "^10.4.20",
+  "daisyui": "^4.12.22",
+  "eslint": "^9.17.0",
+  "eslint-plugin-react": "^7.37.2",
+  "eslint-plugin-react-hooks": "^5.0.0",
+  "eslint-plugin-react-refresh": "^0.4.16",
+  "globals": "^15.13.0",
+  "postcss": "^8.4.49",
+  "tailwindcss": "^3.4.17",
+  "vite": "^6.0.3"
+}
+```
