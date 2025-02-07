@@ -24,7 +24,7 @@
 
 ## 🚀 Live Demo
 
-🔗 **[Visit Recommendo](https://recommendation-platform-1f3cf.firebaseapp.com/recommendation)**
+🔗 **[Visit Recommendo](https://recommendation-platform-1f3cf.firebaseapp.com)**
 
 ---
 
