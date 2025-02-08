@@ -50,7 +50,7 @@ const Contact = () => {
       <div className="bg-slate-100 mt-8">
         <div className="flex gap-5 mx-auto">
           <div className="w-full">
-            <div className="flex flg:flex-row flex-col justify-center items-center">
+            <div className="flex lg:flex-row flex-col justify-center items-center">
               <div className="lg:w-1/2 w-11/12 mx-auto p-6">
                 <h1 className="text-4xl font-semibold my-4">CONTACT US</h1>
                 <form ref={form} onSubmit={handleSendEmail}>
