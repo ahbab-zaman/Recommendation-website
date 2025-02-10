@@ -6,6 +6,7 @@ const AllQueries = () => {
   const [queries, setQueries] = useState([]);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState(false);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
