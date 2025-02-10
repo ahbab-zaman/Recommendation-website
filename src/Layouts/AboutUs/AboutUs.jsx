@@ -1,14 +1,20 @@
 import overview from "../../assets/overview.jpg";
 import AboutCard from "../../Components/AboutCard";
-import card1 from "../../assets/card1.jpg"
-import card2 from "../../assets/card2.jpg"
-import card3 from "../../assets/card3.jpg"
-import card4 from "../../assets/card4.jpg"
-import card5 from "../../assets/card5.jpg"
-import card6 from "../../assets/card6.jpg"
+import card1 from "../../assets/card1.jpg";
+import card2 from "../../assets/card2.jpg";
+import card3 from "../../assets/card3.jpg";
+import card4 from "../../assets/card4.jpg";
+import card5 from "../../assets/card5.jpg";
+import card6 from "../../assets/card6.jpg";
+import Loading from "../../Pages/Loading/Loading";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 const AboutUs = () => {
+  const { loading } = useContext(AuthContext);
+
+  if (loading) return <Loading></Loading>;
   return (
-    <div> 
+    <div>
       <div className="bg-aboutBanner bg-cover h-[250px] bg-no-repeat flex justify-start items-center">
         <h3 className="text-6xl font-bold px-4 text-white">ABOUT US</h3>
       </div>
@@ -34,12 +40,36 @@ const AboutUs = () => {
       <div className=" w-11/12 mx-auto">
         <h3 className="text-center text-4xl font-semibold">WHO WE ARE</h3>
         <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 py-6">
-            <AboutCard image={card1} title="Luna Khan" subTitle="Chief Executive Officer"></AboutCard>
-            <AboutCard image={card2} title="Brayn Payen" subTitle="Chief Executive Officer"></AboutCard>
-            <AboutCard image={card3} title="Ahbab Zaman" subTitle="Managing Director"></AboutCard>
-            <AboutCard image={card4} title="Gorgiana Mean" subTitle="Senior Instructor"></AboutCard>
-            <AboutCard image={card5} title="Hasan Ali" subTitle="Assistant Instructor"></AboutCard>
-            <AboutCard image={card6} title="Muhib Ullah" subTitle="Operational Officer"></AboutCard>
+          <AboutCard
+            image={card1}
+            title="Luna Khan"
+            subTitle="Chief Executive Officer"
+          ></AboutCard>
+          <AboutCard
+            image={card2}
+            title="Brayn Payen"
+            subTitle="Chief Executive Officer"
+          ></AboutCard>
+          <AboutCard
+            image={card3}
+            title="Ahbab Zaman"
+            subTitle="Managing Director"
+          ></AboutCard>
+          <AboutCard
+            image={card4}
+            title="Gorgiana Mean"
+            subTitle="Senior Instructor"
+          ></AboutCard>
+          <AboutCard
+            image={card5}
+            title="Hasan Ali"
+            subTitle="Assistant Instructor"
+          ></AboutCard>
+          <AboutCard
+            image={card6}
+            title="Muhib Ullah"
+            subTitle="Operational Officer"
+          ></AboutCard>
         </div>
       </div>
     </div>

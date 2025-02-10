@@ -4,7 +4,9 @@ import { FaEnvelope, FaLocationDot } from "react-icons/fa6";
 import contact from "../../assets/contact.jpg";
 import emailjs from "@emailjs/browser";
 import { TbLocationFilled } from "react-icons/tb";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Loading from "../../Pages/Loading/Loading";
 
 const Contact = () => {
   const form = useRef();
@@ -25,6 +27,9 @@ const Contact = () => {
         }
       );
   };
+  const { loading } = useContext(AuthContext);
+
+  if (loading) return <Loading></Loading>;
 
   return (
     <div>

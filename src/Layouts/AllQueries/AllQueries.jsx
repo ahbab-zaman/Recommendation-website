@@ -1,20 +1,21 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Query from "../../Components/Query";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Loading from "../../Pages/Loading/Loading";
 
 const AllQueries = () => {
   const [queries, setQueries] = useState([]);
   const [search, setSearch] = useState("");
-  const [sort, setSort] = useState(false);
-  
+  const [sort, setSort] = useState("");
+
   useEffect(() => {
     const fetchData = async () => {
+      let url = `${import.meta.env.VITE_API_URL}/allQueries?search=${search}`;
+      if (sort === "asc") url += "&sortAsc=true";
+      if (sort === "desc") url += "&sortDsc=true";
       try {
-        const { data } = await axios.get(
-          `${
-            import.meta.env.VITE_API_URL
-          }/allQueries?search=${search}&sort=${sort}`
-        );
+        const { data } = await axios(url);
         setQueries(data);
       } catch (error) {
         console.log(error);
@@ -23,6 +24,9 @@ const AllQueries = () => {
     fetchData();
   }, [search, sort]);
 
+  const { loading } = useContext(AuthContext);
+
+  if (loading) return <Loading></Loading>;
   return (
     <div className="w-11/12 mx-auto">
       <div className="p-4 text-center">
@@ -49,13 +53,20 @@ const AllQueries = () => {
           </button>
         </div>
         {/* sort */}
-        <div>
+        <div className="space-x-2">
           <button
-            onClick={() => setSort(!sort)}
+            onClick={() => setSort("asc")}
             className="px-4 py-2 rounded-xl bg-neutral text-white font-semibold hover:bg-[#ffffff09] hover:border hover:text-black hover:transition-colors hover:duration-300"
           >
-            Sort By Count
+            Sort By Ascending
           </button>
+          <button
+            onClick={() => setSort("desc")}
+            className="px-4 py-2 rounded-xl bg-neutral text-white font-semibold hover:bg-[#ffffff09] hover:border hover:text-black hover:transition-colors hover:duration-300"
+          >
+            Sort By Descending
+          </button>
+
         </div>
       </div>
       <div className={`grid lg:grid-cols-4 grid-cols-1 py-6 gap-6`}>

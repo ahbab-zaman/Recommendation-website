@@ -1,13 +1,23 @@
 import { NavLink, useRouteError } from "react-router-dom";
 import errorImage from "../../assets/404.jpg";
+import Loading from "../Loading/Loading";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 const ErrorPage = () => {
+  const { loading } = useContext(AuthContext);
+
+  if (loading) return <Loading></Loading>;
   const error = useRouteError();
   {
     if (error.status === 404) {
       return (
         <div className="w-full h-screen mx-auto flex justify-center items-center  rounded-xl">
           <div className="text-center space-y-3">
-            <img className="w-[300px] mx-auto h-[300px]" src={errorImage} alt="" />
+            <img
+              className="w-[300px] mx-auto h-[300px]"
+              src={errorImage}
+              alt=""
+            />
             <h4 className="text-5xl font-semibold">
               This page doesn't exist...
             </h4>

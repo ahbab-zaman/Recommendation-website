@@ -7,12 +7,10 @@ import Loading from "../Loading/Loading";
 
 const QueryDetails = () => {
   const queryInfo = useLoaderData();
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const [showRecommendation, setShowRecommendation] = useState([]);
   const { boycott, brand, name, createdAt, photo, title, _id, userInfo } =
     queryInfo;
-
-    if(loading) return <Loading></Loading> 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/recommend/${_id}`)
       .then((res) => res.json())
@@ -55,6 +53,8 @@ const QueryDetails = () => {
         console.log(error);
       });
   };
+
+  if (loading) return <Loading></Loading>;
   return (
     <div className=" py-8">
       <div className="flex flex-col md:flex-row justify-around gap-5  items-center min-h-[calc(100vh-306px)] md:max-w-screen-xl mx-auto">

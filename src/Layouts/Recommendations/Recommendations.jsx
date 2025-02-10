@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Loading from "../../Pages/Loading/Loading";
 
 const Recommendations = () => {
   const [myRecommend, setMyRecommend] = useState([]);
   const [recommender, setRecommender] = useState([]);
-  const { user } = useContext(AuthContext);
+  const { user,loading } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchedData = async () => {
@@ -41,6 +41,9 @@ const Recommendations = () => {
       myQueries();
     }
   }, [user]);
+
+  
+  if(loading) return <Loading></Loading> 
   return (
     <div>
       {myRecommend.length > 0 ? (

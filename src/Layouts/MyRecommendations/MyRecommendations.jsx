@@ -3,10 +3,10 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import { AiFillDelete } from "react-icons/ai";
 import Swal from "sweetalert2";
+import Loading from "../../Pages/Loading/Loading";
 
 const MyRecommendations = () => {
-  const { user } = useContext(AuthContext);
-  // const [recommend, []] = useState([]);
+  const { user, loading } = useContext(AuthContext);
   const [deleteRecommendation, setDeleteRecommendation] = useState([]);
   useEffect(() => {
     if (user?.email) {
@@ -52,6 +52,8 @@ const MyRecommendations = () => {
       }
     });
   };
+
+  if (loading) return <Loading></Loading>;
   return (
     <div>
       {deleteRecommendation.length > 0 ? (
@@ -96,7 +98,7 @@ const MyRecommendations = () => {
         </>
       ) : (
         <div className="pt-6 h-screen flex flex-col justify-center items-center">
-        <h2 className="text-3xl font-bold">No Recommendation of mine</h2>
+          <h2 className="text-3xl font-bold">No Recommendation of mine</h2>
         </div>
       )}
     </div>

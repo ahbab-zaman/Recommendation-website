@@ -5,11 +5,12 @@ import axios from "axios";
 import { AuthContext } from "../../Provider/AuthProvider";
 import MyQueryCard from "../../Components/MyQueryCard";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Loading from "../../Pages/Loading/Loading";
 const MyQueries = () => {
   const [queries, setQueries] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [deleteQuery, setDeleteQuery] = useState(queries);
-  const { user } = useContext(AuthContext);
+  const { user,loading } = useContext(AuthContext);
   useEffect(() => {
     const myQueries = async () => {
       try {
@@ -32,6 +33,8 @@ const MyQueries = () => {
       myQueries();
     }
   }, [user]);
+  
+  if(loading) return <Loading></Loading> 
   return (
     <div className="space-y-2">
       <div className="px-6">
