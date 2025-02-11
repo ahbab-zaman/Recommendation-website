@@ -4,10 +4,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "merri": ["Source Sans 3", "serif"],
+        merri: ["Source Sans 3", "serif"],
       },
-      backgroundImage : {
-        "aboutBanner": "url('./assets/aboutBanner.jpg')"
+      backgroundImage: {
+        aboutBanner: "url('./assets/aboutBanner.jpg')",
+      },
+      daisyui: {
+        themes: ["dark"],
       },
     },
   },

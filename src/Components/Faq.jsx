@@ -6,7 +6,14 @@ const Faq = () => {
       </div>
 
       <div className="w-[80%] mx-auto">
-        <div className="collapse collapse-plus">
+        <div
+          data-aos="fade-down"
+          data-aos-offset="120"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out-cubic"
+          data-aos-delay="400"
+          className="collapse collapse-plus"
+        >
           <input type="radio" name="my-accordion-3" defaultChecked />
           <div className="collapse-title text-xl font-medium">
             What is included with my purchase of Recommendo?
@@ -30,7 +37,14 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus">
+        <div
+          data-aos="fade-down"
+          data-aos-offset="120"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out-cubic"
+          data-aos-delay="400"
+          className="collapse collapse-plus"
+        >
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             Are there any recurring fees?
@@ -46,7 +60,14 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus">
+        <div
+          data-aos="fade-down"
+          data-aos-offset="120"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out-cubic"
+          data-aos-delay="400"
+          className="collapse collapse-plus"
+        >
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             Where can I get support?
@@ -70,7 +91,14 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus">
+        <div
+          data-aos="fade-down"
+          data-aos-offset="120"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out-cubic"
+          data-aos-delay="400"
+          className="collapse collapse-plus"
+        >
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             Are the prebuilt websites fully customizable?
@@ -84,7 +112,14 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus">
+        <div
+          data-aos="fade-down"
+          data-aos-offset="120"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out-cubic"
+          data-aos-delay="400"
+          className="collapse collapse-plus"
+        >
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             Why should I trust Avada?
@@ -95,9 +130,17 @@ const Faq = () => {
               by building long-term professional relationships that our
               customers can rely on. Here are some important qualifiers:
             </ul>
-            <li>We love what we do and who we do it for. Your future is our focus.</li>
-            <li>Free, consistent, and stable updates to ensure compatibility with industry standards & trends.</li>
-            <li>Join 999,522 passionate Recommendo customers and build your future.</li>
+            <li>
+              We love what we do and who we do it for. Your future is our focus.
+            </li>
+            <li>
+              Free, consistent, and stable updates to ensure compatibility with
+              industry standards & trends.
+            </li>
+            <li>
+              Join 999,522 passionate Recommendo customers and build your
+              future.
+            </li>
           </div>
         </div>
       </div>

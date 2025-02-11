@@ -6,7 +6,7 @@ const Offer = () => {
   return (
     <div className="py-8">
       <div className="p-4 text-center">
-        <h4 className="text-3xl font-semibold">See What We Offer</h4>
+        <h4  className="text-3xl font-semibold">See What We Offer</h4>
         <p className="font-semibold">These are support by our team members</p>
       </div>
       <div className="bg-neutral py-12 px-4 text-white">
