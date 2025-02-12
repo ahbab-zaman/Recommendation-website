@@ -34,6 +34,7 @@
 - 💡 **Add Your Recommendation** – Users can respond to queries with recommendations.
 - 🔍 **Search Functionalities** – Easily find queries and recommendations using the search feature.
 - 🎨 **Change Grid Layout** – Customize the display layout as per user preference.
+  🌙 **Dark Mode Support** – Users can switch between light and dark themes for a better viewing experience.
 
 ---
 
@@ -61,7 +62,6 @@ Open a pull request
 ## 📜 License
 
 This project is licensed under the ISC License.
-
 
 ## 📦 Dependencies
 
