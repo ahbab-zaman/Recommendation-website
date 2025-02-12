@@ -1,5 +1,6 @@
 import { NavLink, useRouteError } from "react-router-dom";
-import errorImage from "../../assets/404.jpg";
+// import errorImage from "../../assets/404.jpg";
+import errorImage from "../../assets/errorImg.jpg";
 import Loading from "../Loading/Loading";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -14,7 +15,7 @@ const ErrorPage = () => {
         <div className="w-full h-screen mx-auto flex justify-center items-center  rounded-xl">
           <div className="text-center space-y-3">
             <img
-              className="w-[300px] mx-auto h-[300px]"
+              className="w-full mx-auto h-[300px]"
               src={errorImage}
               alt=""
             />
