@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-import signupAnimation from "./Animation - 1736605628958.json";
+import signupAnimation from "./Animation - 1739359430069.json";
 import Lottie from "lottie-react";
 import Loading from "../Loading/Loading";
 const Register = () => {
