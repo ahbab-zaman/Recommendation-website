@@ -2,7 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import loginAnimation from "./Animation - 1736604782995.json";
+import loginAnimation from "./profile.json";
 import googleImg from "../../assets/google.png";
 import { auth } from "../../Firebase/Firebase.init";
 import Lottie from "lottie-react";
