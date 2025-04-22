@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import icon from "../assets/icon (2).png";
+import icon from "../assets/innovation.png";
 import Loading from "../Pages/Loading/Loading";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -73,7 +73,7 @@ const Navbar = () => {
               </ul>
             </div>
             <img className="w-8 lg:flex hidden" src={icon} alt="" />
-            <a className="btn btn-ghost lg:text-xl text-lg">Recommendo</a>
+            <a className="lg:text-xl text-lg font-bold ml-[4px]">Recommendo</a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 space-x-3">
