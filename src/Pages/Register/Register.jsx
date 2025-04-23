@@ -84,8 +84,8 @@ const Register = () => {
                     required
                   />
                 </div>
-                <div className="form-control mt-4">
-                  <button className="btn bg-neutral text-[#fff] font-semibold">
+                <div className="form-control mt-4 ">
+                  <button className="py-2 bg-[#EBF9F5] text-[#35B091] font-bold border-[1px] hover:border-[#35B091] rounded-xl">
                     Register
                   </button>
                 </div>

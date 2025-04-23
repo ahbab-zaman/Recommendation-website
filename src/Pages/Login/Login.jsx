@@ -9,8 +9,8 @@ import Lottie from "lottie-react";
 import Loading from "../Loading/Loading";
 
 const Login = () => {
-  const { user, setUser, userSignIn,loading } = useContext(AuthContext);
-  if(loading) return <Loading></Loading>
+  const { user, setUser, userSignIn, loading } = useContext(AuthContext);
+  if (loading) return <Loading></Loading>;
   const location = useLocation();
   const navigation = useNavigate();
   const provider = new GoogleAuthProvider();
@@ -24,7 +24,6 @@ const Login = () => {
         console.log("Invalid User", error.code);
       });
   };
-
 
   const navigate = useNavigate();
   const handleLogin = (event) => {
@@ -74,7 +73,7 @@ const Login = () => {
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn bg-neutral text-[#fff] font-semibold">
+                  <button className="py-2 bg-[#EBF9F5] text-[#35B091] font-bold border-[1px] hover:border-[#35B091] rounded-xl">
                     Login
                   </button>
                 </div>
