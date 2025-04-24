@@ -21,3 +21,33 @@ body.dark {
 body.dark .navbar {
   background-color: #1e1e1e;
 }
+/* Sidebar base styles */
+.sidebar {
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode styles for the sidebar */
+.dark .sidebar {
+  background-color: #1f2937; /* Tailwind's gray-900 */
+  color: white;
+}
+
+/* Optional: Close icon color */
+.sidebar .close-icon {
+  color: black;
+}
+
+.dark .sidebar .close-icon {
+  color: white;
+}
+
+/* Optional: hover underline color change */
+.sidebar a::after {
+  background-color: black;
+}
+
+.dark .sidebar a::after {
+  background-color: white;
+}

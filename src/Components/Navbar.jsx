@@ -57,13 +57,13 @@ const Navbar = () => {
                 </svg>
               </button>
               <div
-                className={`fixed inset-0 z-40 bg-black bg-opacity-30 transition-opacity duration-300 ${
+                className={`fixed inset-0 z-40 bg-opacity-30 transition-opacity duration-300 sidebar ${
                   showSidebar ? "opacity-100 visible" : "opacity-0 invisible"
                 }`}
                 onClick={() => setShowSidebar(false)}
               />
               <div
-                className={`fixed top-0 left-0 z-50 h-full w-64 bg-base-100 shadow-md transform transition-transform duration-300 ${
+                className={`fixed top-0 left-0 z-50 h-full w-64 shadow-md transform transition-transform duration-300 ${
                   showSidebar ? "translate-x-0" : "-translate-x-full"
                 }`}
               >
@@ -143,7 +143,9 @@ const Navbar = () => {
             </div>
 
             <img className="w-8 lg:flex hidden" src={icon} alt="" />
-            <a className="lg:text-xl text-lg font-bold ml-[4px]">Recommendo</a>
+            <Link to="/" className="lg:text-xl text-lg font-bold ml-[4px]">
+              Recommendo
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 space-x-3">
@@ -201,18 +203,6 @@ const Navbar = () => {
             <div className="lg:flex hidden">
               <ThemeToggler />
             </div>
-            {user && (
-              <div>
-                <Link to="/login" className="w-full">
-                  <button
-                    onClick={userSignOut}
-                    className={`lg:px-6 px-3 lg:p-2 hover:transition-all hover:shadow-xl hover:duration-500 rounded-full bg-[#62D0B4] text-[#fff] lg:text-base text-sm font-bold`}
-                  >
-                    Logout
-                  </button>
-                </Link>
-              </div>
-            )}
             {user ? (
               <div className="flex items-center gap-2">
                 <div className="dropdown dropdown-end">
@@ -270,6 +260,18 @@ const Navbar = () => {
                           My Recommendation
                         </Link>
                       </li>
+                    )}
+                    {user && (
+                      <div>
+                        <Link to="/login" className="w-full">
+                          <button
+                            onClick={userSignOut}
+                            className={`py-2 px-3 w-full hover:transition-all hover:shadow-xl hover:duration-500 rounded-xl bg-[#62D0B4] text-[#fff] font-bold`}
+                          >
+                            Logout
+                          </button>
+                        </Link>
+                      </div>
                     )}
                   </ul>
                 </div>
