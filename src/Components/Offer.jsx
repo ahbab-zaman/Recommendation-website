@@ -9,9 +9,9 @@ const Offer = () => {
         <h4  className="text-3xl font-semibold">See What We Offer</h4>
         <p className="font-semibold">These are support by our team members</p>
       </div>
-      <div className="bg-neutral py-12 px-4 text-white">
+      <div className="py-12 px-4">
         <div className="flex lg:flex-nowrap flex-wrap justify-between items-center gap-6 mx-auto w-11/12">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 text-[#899492]">
             <span>
               <FaTruckFast className="text-[50px]"></FaTruckFast>
             </span>
@@ -23,15 +23,15 @@ const Offer = () => {
 
           <div className="flex items-center gap-3">
             <span>
-              <TbTruckReturn className="text-[50px]"></TbTruckReturn>
+              <TbTruckReturn className="text-[50px] text-[#899492]"></TbTruckReturn>
             </span>
             <div>
-              <h4 className="text-lg font-bold">Free Return</h4>
-              <p className="font-extralight">Returns are free within 9 days</p>
+              <h4 className="text-lg font-bold text-[#899492]">Free Return</h4>
+              <p className="font- text-[#899492]">Returns are free within 9 days</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 text-[#899492]">
             <span>
               <FaUserShield className="text-[50px]"></FaUserShield>
             </span>
@@ -41,7 +41,7 @@ const Offer = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 text-[#899492]">
             <span>
               <MdPayment className="text-[50px]"></MdPayment>
             </span>

@@ -51,3 +51,10 @@ body.dark .navbar {
 .dark .sidebar a::after {
   background-color: white;
 }
+.trial {
+  background: linear-gradient(135deg, #37c2a4, #19b2b2);
+}
+.dark .trial {
+  background: #1f2937; /* Tailwind's gray-900 */
+  color: white;
+}
