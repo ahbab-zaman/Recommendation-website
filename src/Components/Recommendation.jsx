@@ -1,7 +1,3 @@
-import axios from "axios";
-import { MdDeleteForever } from "react-icons/md";
-import Swal from "sweetalert2";
-
 const Recommendation = ({ recommendation }) => {
   const { photo, product_name, current_time, reason, recommender_name, _id } =
     recommendation;

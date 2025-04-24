@@ -52,11 +52,11 @@ const Contact = () => {
         ></ContactInfo>
       </div>
 
-      <div className="bg-slate-100 mt-8">
+      <div className="mt-8">
         <div className="flex gap-5 mx-auto">
           <div className="w-full">
             <div className="flex lg:flex-row flex-col justify-center items-center">
-              <div className="lg:w-1/2 w-11/12 mx-auto p-6">
+              <div className="w-11/12 mx-auto p-6">
                 <h1 className="text-4xl font-semibold my-4">CONTACT US</h1>
                 <form ref={form} onSubmit={handleSendEmail}>
                   <label className="form-control w-full">
@@ -94,13 +94,10 @@ const Contact = () => {
                     placeholder="Message"
                     name="message"
                   ></textarea>
-                  <button className="flex items-center gap-2 bg-neutral px-4 py-2 text-white rounded-xl font-semibold">
+                  <button className="flex items-center gap-2 px-4 py-2 bg-[#62D0B4] text-white rounded-xl font-semibold">
                     Submit <TbLocationFilled></TbLocationFilled>
                   </button>
                 </form>
-              </div>
-              <div className="lg:w-1/2 w-full mx-auto">
-                <img className="w-full" src={contact} alt="" />
               </div>
             </div>
           </div>

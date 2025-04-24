@@ -66,3 +66,9 @@ body.dark .navbar {
   background: #151a22; /* Tailwind's gray-900 */
   color: white;
 }
+.t-head{
+  color: black;
+}
+.dark .t-head{
+  color: #fff;
+}
