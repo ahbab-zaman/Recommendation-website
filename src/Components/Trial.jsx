@@ -1,11 +1,11 @@
 const Trial = () => {
   return (
-    <div className="p-24 trial text-white">
+    <div className="lg:p-24 p-10 trial text-white">
       <div className="space-y-4">
-        <h2 className="text-4xl font-bold text-center">
+        <h2 className="lg:text-4xl text-2xl font-bold text-center">
          Try the World’s Best Recommender Engine
         </h2>
-        <h4 className="text-4xl font-bold text-center">Free for 30 Days</h4>
+        <h4 className="lg:text-4xl text-2xl font-bold text-center">Free for 30 Days</h4>
         <p className="text-[#b5e7e2] text-center">
           Increased Conversion Rate · Improved User Experience · Higher Profits
           · Increased Loyalty

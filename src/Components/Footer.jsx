@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import icon from "../assets/icon (2).png";
-import github from "../assets/github-sign.png";
-import linkedin from "../assets/linkedin.png";
+import { FaGithub } from "react-icons/fa";
+import { LuLinkedin } from "react-icons/lu";
 const Footer = () => {
   return (
-    <footer className="footer bg-neutral text-neutral-content items-center p-4">
+    <footer className="footer foot text-neutral-content items-center p-4 border-[1px]">
       <aside className="grid-flow-col items-center">
         <img className="w-12" src={icon} alt="" />
         <p>
@@ -16,10 +16,10 @@ const Footer = () => {
       </aside>
       <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
         <Link to="https://github.com/ahbab-zaman">
-          <img className="w-12" src={github} alt="" />
+          <FaGithub size={30} />
         </Link>
         <Link to="https://www.facebook.com/profile.php?id=100015172482884&mibextid=ZbWKwL">
-          <img className="w-12" src={linkedin} alt="" />
+          <LuLinkedin size={30} />
         </Link>
       </nav>
     </footer>

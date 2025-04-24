@@ -19,7 +19,7 @@ body.dark {
 }
 
 body.dark .navbar {
-  background-color: #1e1e1e;
+  background-color: #151a22;
 }
 /* Sidebar base styles */
 .sidebar {
@@ -30,7 +30,7 @@ body.dark .navbar {
 
 /* Dark mode styles for the sidebar */
 .dark .sidebar {
-  background-color: #1f2937; /* Tailwind's gray-900 */
+  background-color: #151a22; /* Tailwind's gray-900 */
   color: white;
 }
 
@@ -55,6 +55,14 @@ body.dark .navbar {
   background: linear-gradient(135deg, #37c2a4, #19b2b2);
 }
 .dark .trial {
-  background: #1f2937; /* Tailwind's gray-900 */
+  background: #151a22; /* Tailwind's gray-900 */
+  color: white;
+}
+.foot {
+  background: #fff;
+  color: #000;
+}
+.dark .foot {
+  background: #151a22; /* Tailwind's gray-900 */
   color: white;
 }

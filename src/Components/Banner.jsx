@@ -3,7 +3,7 @@ import banner from "../assets/banner-1.svg";
 const Banner = () => {
   return (
     <>
-      <section className="flex lg:flex-row flex-col justify-between items-center">
+      <section className="flex lg:flex-row flex-col justify-between items-center w-11/12 mx-auto">
         <div className="lg:w-1/2 w-11/12 pl-4 space-y-3">
           <h1 className="lg:text-6xl text-3xl font-semibold">
             Personalized Recommendation <br /> as a Service
