@@ -5,10 +5,10 @@ import Swal from "sweetalert2";
 import Loading from "../Loading/Loading";
 
 const UpdateQuery = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const updatedQuery = useLoaderData();
   const navigate = useNavigate();
-  if(loading) return <Loading></Loading>
+  if (loading) return <Loading></Loading>;
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -150,11 +150,10 @@ const UpdateQuery = () => {
           placeholder="Enter Boycotting Reason"
           name="boycott"
           defaultValue={updatedQuery.boycott}
-          className="textarea h-[5rem] mt-4 textarea-bordered w-full resize-none"
+          className="block w-full px-4 py-2 mt-2 border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring custom-input"
         ></textarea>
-
-        <div className="justify-center w-full">
-          <button className="btn w-full bg-[#1c1c1ccd] text-[#fff] text-lg font-semibold rounded-none">
+        <div className="flex justify-center w-full">
+          <button className="flex justify-center items-center text-center gap-2 px-4 py-2 bg-[#62D0B4] text-white rounded-xl font-semibold w-full">
             Update Query
           </button>
         </div>

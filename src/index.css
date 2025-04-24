@@ -66,9 +66,19 @@ body.dark .navbar {
   background: #151a22; /* Tailwind's gray-900 */
   color: white;
 }
-.t-head{
+.t-head {
   color: black;
 }
-.dark .t-head{
+.dark .t-head {
   color: #fff;
+}
+.custom-input::placeholder {
+  color: black;
+}
+body.dark .custom-input::placeholder {
+  color: black;
+}
+body .dark .input::placeholder {
+  background: #fff;
+  color: #000;
 }
