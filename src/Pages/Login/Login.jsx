@@ -7,10 +7,11 @@ import googleImg from "../../assets/google.png";
 import { auth } from "../../Firebase/Firebase.init";
 import Lottie from "lottie-react";
 import Loading from "../Loading/Loading";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const { user, setUser, userSignIn,loading } = useContext(AuthContext);
-  if(loading) return <Loading></Loading>
+  const { user, setUser, userSignIn, loading } = useContext(AuthContext);
+  if (loading) return <Loading></Loading>;
   const location = useLocation();
   const navigation = useNavigate();
   const provider = new GoogleAuthProvider();
@@ -19,12 +20,21 @@ const Login = () => {
       .then((result) => {
         setUser(result.user);
         navigate("/");
+        Swal.fire({
+          title: "User Logged in Successfully",
+          icon: "success",
+          draggable: false,
+        });
       })
       .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: error.code,
+          text: "Something went wrong!",
+        });
         console.log("Invalid User", error.code);
       });
   };
-
 
   const navigate = useNavigate();
   const handleLogin = (event) => {
@@ -37,9 +47,19 @@ const Login = () => {
       .then((res) => {
         setUser(res.user);
         navigation(location?.state ? location.state : "/");
+        Swal.fire({
+          title: "User Logged in Successfully",
+          icon: "success",
+          draggable: false,
+        });
       })
       .catch((error) => {
         console.log(error.code);
+        Swal.fire({
+          icon: "error",
+          title: error.code,
+          text: "Something went wrong!",
+        });
       });
   };
   return (
@@ -74,7 +94,7 @@ const Login = () => {
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn bg-neutral text-[#fff] font-semibold">
+                  <button className="py-2 bg-[#EBF9F5] text-[#35B091] font-bold border-[1px] hover:border-[#35B091] rounded-xl">
                     Login
                   </button>
                 </div>

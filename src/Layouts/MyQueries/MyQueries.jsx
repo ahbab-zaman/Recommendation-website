@@ -36,18 +36,10 @@ const MyQueries = () => {
   
   if(loading) return <Loading></Loading> 
   return (
-    <div className="space-y-2">
-      <div className="px-6">
-        <Slide
-          image={myQuery}
-          text={"Submit Your Query and let the community Recommend!"}
-          button={"Add Queries"} link={"/addQuery"}
-        ></Slide>
-      </div>
-
+    <div className="space-y-2 ">
       <div>
         {errorMessage ? (
-          <div className="py-12 text-center">
+          <div className="py-12 text-center ">
             <p
               style={{
                 color: "red",
@@ -61,7 +53,7 @@ const MyQueries = () => {
               {errorMessage}
             </p>
             <Link to="/addQuery">
-              <button className="px-4 p-2 bg-[#2B3440] rounded-none text-white font-semibold">
+              <button className="px-4 p-2 bg-[#62D0B4] rounded-none text-white font-semibold ">
                 Add Query
               </button>
             </Link>
@@ -80,12 +72,12 @@ const MyQueries = () => {
                 </p>
               </div>
             ) : (
-              <div className="flex flex-col justify-center items-center">
+              <div className="flex flex-col justify-center items-center h-full">
                 <h2 className="text-4xl font-bold text-center my-4">
                   No Query Added Yet
                 </h2>
                 <Link to="/addQuery">
-                  <button className="px-4 py-2 bg-neutral text-white font-semibold">
+                  <button className="px-4 py-2 bg-[#62D0B4] rounded-xl text-white font-semibold">
                     Add Query
                   </button>
                 </Link>
