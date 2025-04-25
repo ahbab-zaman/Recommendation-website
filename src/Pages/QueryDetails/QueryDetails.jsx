@@ -4,6 +4,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import Recommendation from "../../Components/Recommendation";
 import Loading from "../Loading/Loading";
+import Swal from "sweetalert2";
 
 const QueryDetails = () => {
   const queryInfo = useLoaderData();
@@ -47,9 +48,19 @@ const QueryDetails = () => {
       .post(`${import.meta.env.VITE_API_URL}/addRecommend`, recommendInfo)
       .then((data) => {
         console.log(data.data);
+        Swal.fire({
+          title: "Recommendation Added Successfully",
+          icon: "success",
+          draggable: false,
+        });
         form.reset();
       })
       .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: error.code,
+          text: "Something went wrong!",
+        });
         console.log(error);
       });
   };
@@ -64,9 +75,7 @@ const QueryDetails = () => {
             <img src={userInfo?.userImage} alt="" />
           </div>
           <div>
-            <p className="mt-6 text-2xl font-semibold ">
-              User Details:
-            </p>
+            <p className="mt-6 text-2xl font-semibold ">User Details:</p>
             <div className="flex items-center gap-5">
               <div>
                 <p className="mt-2 text-xl font-semibold">

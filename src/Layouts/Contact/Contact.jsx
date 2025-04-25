@@ -7,6 +7,7 @@ import { TbLocationFilled } from "react-icons/tb";
 import { useContext, useRef } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Loading from "../../Pages/Loading/Loading";
+import Swal from "sweetalert2";
 
 const Contact = () => {
   const form = useRef();
@@ -21,8 +22,18 @@ const Contact = () => {
       .then(
         () => {
           console.log("SUCCESS!");
+          Swal.fire({
+            title: "Email Sent Successfully",
+            icon: "success",
+            draggable: false,
+          });
         },
         (error) => {
+          Swal.fire({
+            icon: "error",
+            title: error.code,
+            text: "Something went wrong!",
+          });
           console.log("FAILED...", error.text);
         }
       );

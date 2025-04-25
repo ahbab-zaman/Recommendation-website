@@ -7,6 +7,7 @@ import googleImg from "../../assets/google.png";
 import { auth } from "../../Firebase/Firebase.init";
 import Lottie from "lottie-react";
 import Loading from "../Loading/Loading";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { user, setUser, userSignIn, loading } = useContext(AuthContext);
@@ -19,8 +20,18 @@ const Login = () => {
       .then((result) => {
         setUser(result.user);
         navigate("/");
+        Swal.fire({
+          title: "User Logged in Successfully",
+          icon: "success",
+          draggable: false,
+        });
       })
       .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: error.code,
+          text: "Something went wrong!",
+        });
         console.log("Invalid User", error.code);
       });
   };
@@ -36,9 +47,19 @@ const Login = () => {
       .then((res) => {
         setUser(res.user);
         navigation(location?.state ? location.state : "/");
+        Swal.fire({
+          title: "User Logged in Successfully",
+          icon: "success",
+          draggable: false,
+        });
       })
       .catch((error) => {
         console.log(error.code);
+        Swal.fire({
+          icon: "error",
+          title: error.code,
+          text: "Something went wrong!",
+        });
       });
   };
   return (
