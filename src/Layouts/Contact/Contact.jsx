@@ -101,7 +101,7 @@ const Contact = () => {
                   </label>
 
                   <textarea
-                    className="textarea textarea-accent w-full resize-none bg-gray-100 p-3 rounded-lg border-2"
+                    className="textarea textarea-accent w-full resize-none bg-gray-100 p-3 rounded-lg"
                     placeholder="Message"
                     name="message"
                   ></textarea>

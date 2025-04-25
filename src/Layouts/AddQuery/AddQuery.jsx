@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddQuery = () => {
   const { user } = useContext(AuthContext);
@@ -37,9 +38,19 @@ const AddQuery = () => {
       .then((data) => {
         console.log(data.data);
         form.reset();
+        Swal.fire({
+          title: "Query Added Successfully",
+          icon: "success",
+          draggable: false,
+        });
       })
       .catch((error) => {
         console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: error.code,
+          text: "Something went wrong!",
+        });s
       });
   };
 
@@ -56,60 +67,52 @@ const AddQuery = () => {
           <form onSubmit={handleSubmit} className="card-body">
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-lg font-semibold">
-                  Product Name
-                </span>
+                <span className="text-lg font-semibold">Product Name</span>
               </label>
               <input
                 type="text"
                 name="name"
                 placeholder="Enter Product Name"
-                className="border-b border-gray-300 focus:outline-none focus:border-slate-900"
+                className="border-b border-gray-300 focus:outline-none focus:border-slate-900 custom-input p-2 rounded-lg"
                 required
               />
             </div>
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-lg font-semibold">
-                  Product Brand
-                </span>
+                <span className="text-lg font-semibold">Product Brand</span>
               </label>
               <input
                 type="text"
                 name="brand"
                 placeholder="Enter Brand Name"
-                className="border-b border-gray-300 focus:outline-none focus:border-slate-900"
+                className="border-b border-gray-300 focus:outline-none focus:border-slate-900 custom-input p-2 rounded-lg"
                 required
               />
             </div>
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-lg font-semibold">
-                  Product Image
-                </span>
+                <span className="text-lg font-semibold">Product Image</span>
               </label>
               <input
                 type="url"
                 name="photo"
                 placeholder="Enter Photo URL"
-                className="border-b border-gray-300 focus:outline-none focus:border-slate-900"
+                className="border-b border-gray-300 focus:outline-none focus:border-slate-900 custom-input p-2 rounded-lg"
                 required
               />
             </div>
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-lg font-semibold">
-                  Query Title
-                </span>
+                <span className="text-lg font-semibold">Query Title</span>
               </label>
               <input
                 type="text"
                 name="title"
                 placeholder="Enter Query Title"
-                className="border-b border-gray-300 focus:outline-none focus:border-slate-900"
+                className="border-b border-gray-300 focus:outline-none focus:border-slate-900 custom-input p-2 rounded-lg"
                 required
               />
             </div>
@@ -117,11 +120,11 @@ const AddQuery = () => {
             <textarea
               placeholder="Enter Boycotting Reason"
               name="boycott"
-              className="textarea h-[5rem] mt-4 textarea-bordered w-full resize-none"
+              className="textarea h-[5rem] mt-4 textarea-bordered w-full resize-none custom-input p-2 rounded-lg"
             ></textarea>
 
             <div className="form-control mt-6">
-              <button className="btn bg-[#1c1c1ccd] text-[#fff] text-lg font-semibold rounded-none">
+              <button className="flex justify-center items-center gap-2 px-4 py-2 bg-[#62D0B4] text-white rounded-xl font-semibold">
                 Add Query
               </button>
             </div>
