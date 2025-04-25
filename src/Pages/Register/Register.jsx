@@ -4,6 +4,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import signupAnimation from "./Animation - 1739359430069.json";
 import Lottie from "lottie-react";
 import Loading from "../Loading/Loading";
+import Swal from "sweetalert2";
 const Register = () => {
   const { user, userRegister, loading } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -20,9 +21,19 @@ const Register = () => {
       .then((res) => {
         console.log(res.user);
         navigate("/");
+        Swal.fire({
+          title: "User Registered Successfully",
+          icon: "success",
+          draggable: false,
+        });
       })
       .catch((error) => {
         console.log(error.code);
+        Swal.fire({
+          icon: "error",
+          title: error.code,
+          text: "Something went wrong!",
+        });
       });
   };
 
@@ -84,8 +95,8 @@ const Register = () => {
                     required
                   />
                 </div>
-                <div className="form-control mt-4">
-                  <button className="btn bg-neutral text-[#fff] font-semibold">
+                <div className="form-control mt-4 ">
+                  <button className="py-2 bg-[#EBF9F5] text-[#35B091] font-bold border-[1px] hover:border-[#35B091] rounded-xl">
                     Register
                   </button>
                 </div>

@@ -48,7 +48,7 @@ const AllQueries = () => {
             aria-label="Enter Product Name"
           />
 
-          <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-neutral rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
+          <button className="py-2 px-4 rounded-xl text-[#62D0B4] font-bold bg-[#EBF9F5] border-[#62D0B4] border-[1px]">
             Search
           </button>
         </div>
@@ -56,17 +56,16 @@ const AllQueries = () => {
         <div className="space-x-2">
           <button
             onClick={() => setSort("asc")}
-            className="px-4 py-2 rounded-xl bg-neutral text-white font-semibold hover:bg-[#ffffff09] hover:border hover:text-black hover:transition-colors hover:duration-300"
+            className="py-2 px-4 rounded-xl text-[#62D0B4] font-bold bg-[#EBF9F5] border-[#62D0B4] border-[1px] hover:scale-105 hover:transition-all hover:duration-300"
           >
             Sort By Ascending
           </button>
           <button
             onClick={() => setSort("desc")}
-            className="px-4 py-2 rounded-xl bg-neutral text-white font-semibold hover:bg-[#ffffff09] hover:border hover:text-black hover:transition-colors hover:duration-300"
+            className="py-2 px-4 rounded-xl text-[#62D0B4] font-bold bg-[#EBF9F5] border-[#62D0B4] border-[1px] hover:scale-105 hover:transition-all hover:duration-300"
           >
             Sort By Descending
           </button>
-
         </div>
       </div>
       <div className={`grid lg:grid-cols-4 grid-cols-1 py-6 gap-6`}>

@@ -1,4 +1,82 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+body {
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+/* You can also target specific elements */
+.navbar {
+  background-color: white;
+}
+
+body.dark .navbar {
+  background-color: #151a22;
+}
+/* Sidebar base styles */
+.sidebar {
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode styles for the sidebar */
+.dark .sidebar {
+  background-color: #151a22; /* Tailwind's gray-900 */
+  color: white;
+}
+
+/* Optional: Close icon color */
+.sidebar .close-icon {
+  color: black;
+}
+
+.dark .sidebar .close-icon {
+  color: white;
+}
+
+/* Optional: hover underline color change */
+.sidebar a::after {
+  background-color: black;
+}
+
+.dark .sidebar a::after {
+  background-color: white;
+}
+.trial {
+  background: linear-gradient(135deg, #37c2a4, #19b2b2);
+}
+.dark .trial {
+  background: #151a22; /* Tailwind's gray-900 */
+  color: white;
+}
+.foot {
+  background: #fff;
+  color: #000;
+}
+.dark .foot {
+  background: #151a22; /* Tailwind's gray-900 */
+  color: white;
+}
+.t-head {
+  color: black;
+}
+.dark .t-head {
+  color: #fff;
+}
+.custom-input{
+  background: #fff;
+  border: 1px gray solid;
+}
+.dark .custom-input{
+  background: #151a22;
+  
+}

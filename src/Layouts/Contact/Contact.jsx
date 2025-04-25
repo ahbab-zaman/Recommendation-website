@@ -7,6 +7,7 @@ import { TbLocationFilled } from "react-icons/tb";
 import { useContext, useRef } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Loading from "../../Pages/Loading/Loading";
+import Swal from "sweetalert2";
 
 const Contact = () => {
   const form = useRef();
@@ -21,8 +22,18 @@ const Contact = () => {
       .then(
         () => {
           console.log("SUCCESS!");
+          Swal.fire({
+            title: "Email Sent Successfully",
+            icon: "success",
+            draggable: false,
+          });
         },
         (error) => {
+          Swal.fire({
+            icon: "error",
+            title: error.code,
+            text: "Something went wrong!",
+          });
           console.log("FAILED...", error.text);
         }
       );
@@ -52,11 +63,11 @@ const Contact = () => {
         ></ContactInfo>
       </div>
 
-      <div className="bg-slate-100 mt-8">
+      <div className="mt-8">
         <div className="flex gap-5 mx-auto">
           <div className="w-full">
             <div className="flex lg:flex-row flex-col justify-center items-center">
-              <div className="lg:w-1/2 w-11/12 mx-auto p-6">
+              <div className="w-11/12 mx-auto p-6">
                 <h1 className="text-4xl font-semibold my-4">CONTACT US</h1>
                 <form ref={form} onSubmit={handleSendEmail}>
                   <label className="form-control w-full">
@@ -90,17 +101,14 @@ const Contact = () => {
                   </label>
 
                   <textarea
-                    className="textarea textarea-accent w-full resize-none bg-gray-100 p-3 rounded-lg border-2"
+                    className="textarea textarea-accent w-full resize-none bg-gray-100 p-3 rounded-lg"
                     placeholder="Message"
                     name="message"
                   ></textarea>
-                  <button className="flex items-center gap-2 bg-neutral px-4 py-2 text-white rounded-xl font-semibold">
+                  <button className="flex items-center gap-2 px-4 py-2 bg-[#62D0B4] text-white rounded-xl font-semibold">
                     Submit <TbLocationFilled></TbLocationFilled>
                   </button>
                 </form>
-              </div>
-              <div className="lg:w-1/2 w-full mx-auto">
-                <img className="w-full" src={contact} alt="" />
               </div>
             </div>
           </div>

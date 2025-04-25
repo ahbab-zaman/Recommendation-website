@@ -52,11 +52,11 @@ const Recommendations = () => {
             <thead>
               <tr>
                 <th></th>
-                <th>Query Email</th>
-                <th>Product Name</th>
-                <th>Image</th>
-                <th>Recommender Email</th>
-                <th>Recommended Product</th>
+                <th className="t-head">Query Email</th>
+                <th className="t-head">Product Name</th>
+                <th className="t-head">Image</th>
+                <th className="t-head">Recommender Email</th>
+                <th className="t-head">Recommended Product</th>
               </tr>
             </thead>
             <tbody>

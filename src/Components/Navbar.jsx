@@ -1,10 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import icon from "../assets/icon (2).png";
+import icon from "../assets/innovation.png";
 import Loading from "../Pages/Loading/Loading";
+import ThemeToggler from "./ThemeToggler";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const [showSidebar, setShowSidebar] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,18 +30,17 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`w-full fixed top-0 z-10 transition-colors duration-300  justify-center font-semibold  ${
-          isScrolled ? "bg-neutral text-white" : "bg-transparent "
-        }`}
+        className={`w-full mx-auto fixed top-0 z-10 transition-colors duration-300 font-semibold`}
       >
-        <div className="w-11/12 navbar mx-auto">
+        <div className="w-full navbar justify-between mx-auto">
           <div className="navbar-start">
-            <div className="dropdown">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost lg:hidden"
+            {/* Sidebar */}
+            <div className="lg:hidden">
+              <button
+                onClick={() => setShowSidebar(true)}
+                className="btn btn-ghost"
               >
+                {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -53,71 +55,154 @@ const Navbar = () => {
                     d="M4 6h16M4 12h8m-8 6h16"
                   />
                 </svg>
-              </div>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              </button>
+              <div
+                className={`fixed inset-0 z-40 bg-opacity-30 transition-opacity duration-300 sidebar ${
+                  showSidebar ? "opacity-100 visible" : "opacity-0 invisible"
+                }`}
+                onClick={() => setShowSidebar(false)}
+              />
+              <div
+                className={`fixed top-0 left-0 z-50 h-full w-64 shadow-md transform transition-transform duration-300 ${
+                  showSidebar ? "translate-x-0" : "-translate-x-full"
+                }`}
               >
-                <li>
-                  <NavLink to="/">Home</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/queries">Queries</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/about">About Us</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/contact">Contact Us</NavLink>
-                </li>
-              </ul>
+                {/* Close Button */}
+                <div className="flex justify-end p-4">
+                  <button onClick={() => setShowSidebar(false)}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <ul className="menu p-4 space-y-2">
+                  <li>
+                    <Link
+                      to="/"
+                      className={`relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full px-3 py-2 rounded-md transition-all duration-300 ${
+                        location.pathname === "/"
+                          ? "bg-[#62D0B4] text-white font-bold"
+                          : "font-bold"
+                      }`}
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/queries"
+                      className={`relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full px-3 py-2 rounded-md transition-all duration-300 ${
+                        location.pathname === "/queries"
+                          ? "bg-[#62D0B4] text-white font-bold"
+                          : "font-bold"
+                      }`}
+                    >
+                      Queries
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/about"
+                      className={`relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full px-3 py-2 rounded-md transition-all duration-300 ${
+                        location.pathname === "/about"
+                          ? "bg-[#62D0B4] text-white font-bold"
+                          : "font-bold"
+                      }`}
+                    >
+                      About Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/contact"
+                      className={`relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full px-3 py-2 rounded-md transition-all duration-300 ${
+                        location.pathname === "/contact"
+                          ? "bg-[#62D0B4] text-white font-bold"
+                          : "font-bold"
+                      }`}
+                    >
+                      Contact Us
+                    </Link>
+                  </li>
+                  <li className="lg:hidden flex">
+                    <ThemeToggler />
+                  </li>
+                </ul>
+              </div>
             </div>
+
             <img className="w-8 lg:flex hidden" src={icon} alt="" />
-            <a className="btn btn-ghost lg:text-xl text-lg">Recommendo</a>
+            <Link to="/" className="lg:text-xl text-lg font-bold ml-[4px]">
+              Recommendo
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 space-x-3">
               <li>
-                <NavLink to="/">Home</NavLink>
+                <Link
+                  to="/"
+                  className={`relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full px-3 py-2 rounded-md transition-all duration-300 ${
+                    location.pathname === "/"
+                      ? "bg-[#62D0B4] text-white font-bold"
+                      : "font-bold"
+                  }`}
+                >
+                  Home
+                </Link>
               </li>
               <li>
-                <NavLink to="/queries">Queries</NavLink>
+                <Link
+                  to="/queries"
+                  className={`relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full px-3 py-2 rounded-md transition-all duration-300 ${
+                    location.pathname === "/queries"
+                      ? "bg-[#62D0B4] text-white font-bold"
+                      : "font-bold"
+                  }`}
+                >
+                  Queries
+                </Link>
               </li>
               <li>
-                <NavLink to="/about">About Us</NavLink>
+                <Link
+                  to="/about"
+                  className={`relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full px-3 py-2 rounded-md transition-all duration-300 ${
+                    location.pathname === "/about"
+                      ? "bg-[#62D0B4] text-white font-bold"
+                      : "font-bold"
+                  }`}
+                >
+                  About Us
+                </Link>
               </li>
               <li>
-                <NavLink to="/contact">Contact Us</NavLink>
+                <Link
+                  to="/contact"
+                  className={`relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full px-3 py-2 rounded-md transition-all duration-300 ${
+                    location.pathname === "/contact"
+                      ? "bg-[#62D0B4] text-white font-bold"
+                      : "font-bold"
+                  }`}
+                >
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
           <div className="navbar-end">
-            <label className="swap swap-rotate">
-              {/* this hidden checkbox controls the state */}
-              <input
-                type="checkbox"
-                className="theme-controller"
-                value="dark"
-              />
-
-              {/* sun icon */}
-              <svg
-                className="swap-off h-10 w-10 fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
-              </svg>
-
-              {/* moon icon */}
-              <svg
-                className="swap-on h-10 w-10 fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
-              </svg>
-            </label>
+            <div className="lg:flex hidden">
+              <ThemeToggler />
+            </div>
             {user ? (
               <div className="flex items-center gap-2">
                 <div className="dropdown dropdown-end">
@@ -136,29 +221,52 @@ const Navbar = () => {
                   >
                     {user && (
                       <li>
-                        <NavLink to={`/recommendation`}>
+                        <Link
+                          to="/recommendation"
+                          className={`relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full px-3 py-2 rounded-md transition-all duration-300 ${
+                            location.pathname === "/recommendation"
+                              ? "bg-[#62D0B4] text-white font-bold"
+                              : "font-bold"
+                          }`}
+                        >
                           Recommendation for me
-                        </NavLink>
+                        </Link>
                       </li>
                     )}
                     {user && (
                       <li>
-                        <NavLink to="/myQueries">My Queries</NavLink>
+                        <Link
+                          to="/myQueries"
+                          className={`relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full px-3 py-2 rounded-md transition-all duration-300 ${
+                            location.pathname === "/myQueries"
+                              ? "bg-[#62D0B4] text-white font-bold"
+                              : "font-bold"
+                          }`}
+                        >
+                          My Queries
+                        </Link>
                       </li>
                     )}
                     {user && (
                       <li>
-                        <NavLink to="/myRecommendation">
+                        <Link
+                          to="/myRecommendation"
+                          className={`relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full px-3 py-2 rounded-md transition-all duration-300 ${
+                            location.pathname === "/myRecommendation"
+                              ? "bg-[#62D0B4] text-white font-bold"
+                              : "font-bold"
+                          }`}
+                        >
                           My Recommendation
-                        </NavLink>
+                        </Link>
                       </li>
                     )}
                     {user && (
-                      <div className="w-full">
+                      <div>
                         <Link to="/login" className="w-full">
                           <button
                             onClick={userSignOut}
-                            className="px-4 p-2 bg-neutral rounded-xl text-white font-semibold w-full"
+                            className={`py-2 px-3 w-full hover:transition-all hover:shadow-xl hover:duration-500 rounded-xl bg-[#62D0B4] text-[#fff] font-bold`}
                           >
                             Logout
                           </button>
@@ -171,9 +279,7 @@ const Navbar = () => {
             ) : (
               <Link to="/login">
                 <button
-                  className={`px-4 p-2 bg-neutral rounded-none text-white font-semibold ${
-                    isScrolled ? "border text-white " : ""
-                  }`}
+                  className={`lg:px-6 px-3 py-2 hover:transition-all hover:shadow-xl hover:duration-500 rounded-full bg-[#62D0B4] text-[#fff] lg:text-base text-sm font-bold`}
                 >
                   Login
                 </button>

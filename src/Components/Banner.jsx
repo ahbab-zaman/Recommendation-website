@@ -1,84 +1,33 @@
-import banner1 from "../assets/banner1.png";
-import banner2 from "../assets/banner4.png";
-import banner3 from "../assets/banner3.png";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import Slide from "./Slide";
-
+import { Link } from "react-router-dom";
+import banner from "../assets/banner-1.svg";
 const Banner = () => {
   return (
-    <Swiper
-      spaceBetween={30}
-      navigation={true}
-      autoplay={true}
-      speed={1000}
-      loop={true}
-      pagination={{
-        clickable: true,
-      }}
-      modules={[Navigation, Pagination, Autoplay]}
-      className="mySwiper"
-    >
-      <SwiperSlide className="px-16">
-        <Slide
-          image={banner1}
-          button={"Start Review"}
-          text={
-            "Compare Top-rated products and save time and money on your purchases"
-          }
-        ></Slide>
-      </SwiperSlide>
-
-      <SwiperSlide className="px-16">
-        <Slide
-          image={banner2}
-          button={"Get your Query"}
-          text={
-            "Get recommendation backed by real user experiences and expert advice"
-          }
-        ></Slide>
-      </SwiperSlide>
-
-      <SwiperSlide className="px-16">
-        <Slide
-          image={banner3}
-          button={"Be a Productive person"}
-          text={"Access handpick recommendations by industry professionals"}
-        ></Slide>
-      </SwiperSlide>
-
-      <style>
-        {`
-        .swiper-button-next,
-        .swiper-button-prev {
-          color: white;
-          background-color: #4b5563;
-          border-radius: 9999px;
-          padding: 10px;
-          width: 40px;
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: background-color 0.3s ease;
-        }
-        .swiper-button-next:hover,
-        .swiper-button-prev:hover {
-          background-color: #F7F6F9; 
-          color:#000;
-          border:1px solid black
-        }
-        .swiper-button-next::after,
-        .swiper-button-prev::after {
-          font-size: 1rem;
-        }
-        `}
-      </style>
-    </Swiper>
+    <>
+      <section className="flex lg:flex-row flex-col justify-between items-center w-11/12 mx-auto">
+        <div className="lg:w-1/2 w-11/12 pl-4 space-y-3">
+          <h1 className="lg:text-6xl text-3xl font-semibold">
+            Personalized Recommendation <br /> as a Service
+          </h1>
+          <p className="text-[#778484] lg:w-3/4 w-11/12">
+            Become the architect of your success with our AI personalization
+            engine designed to align with the visionary strategy of product
+            managers and tech teams.
+          </p>
+          <div>
+            <Link to="/addQuery">
+              <button className="bg-[#EBF9F5] text-[#35B091] py-2 px-4 rounded-full font-semibold border-[1px] border-[#35B091]">
+                Start Free
+              </button>
+            </Link>
+          </div>
+        </div>
+        <div className="lg:w-1/2 w-full">
+          <figure>
+            <img src={banner} alt="" />
+          </figure>
+        </div>
+      </section>
+    </>
   );
 };
 

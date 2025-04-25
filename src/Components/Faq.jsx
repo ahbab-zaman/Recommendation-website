@@ -5,14 +5,13 @@ const Faq = () => {
         <h4 className="text-3xl font-semibold">Frequently Asked Questions</h4>
       </div>
 
-      <div className="w-[80%] mx-auto">
+      <div className="w-[80%] mx-auto space-y-2">
         <div
           data-aos="fade-down"
           data-aos-offset="120"
-          data-aos-duration="1000"
+          data-aos-duration="400"
           data-aos-easing="ease-out-cubic"
-          data-aos-delay="400"
-          className="collapse collapse-plus"
+          className="collapse collapse-plus border-[1px] hover:shadow-xl"
         >
           <input type="radio" name="my-accordion-3" defaultChecked />
           <div className="collapse-title text-xl font-medium">
@@ -40,10 +39,9 @@ const Faq = () => {
         <div
           data-aos="fade-down"
           data-aos-offset="120"
-          data-aos-duration="1000"
+          data-aos-duration="400"
           data-aos-easing="ease-out-cubic"
-          data-aos-delay="400"
-          className="collapse collapse-plus"
+          className="collapse collapse-plus border-[1px] hover:shadow-xl"
         >
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
@@ -63,10 +61,9 @@ const Faq = () => {
         <div
           data-aos="fade-down"
           data-aos-offset="120"
-          data-aos-duration="1000"
+          data-aos-duration="400"
           data-aos-easing="ease-out-cubic"
-          data-aos-delay="400"
-          className="collapse collapse-plus"
+          className="collapse collapse-plus border-[1px] hover:shadow-xl"
         >
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
@@ -94,10 +91,9 @@ const Faq = () => {
         <div
           data-aos="fade-down"
           data-aos-offset="120"
-          data-aos-duration="1000"
+          data-aos-duration="400"
           data-aos-easing="ease-out-cubic"
-          data-aos-delay="400"
-          className="collapse collapse-plus"
+          className="collapse collapse-plus border-[1px] hover:shadow-xl"
         >
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
@@ -115,10 +111,9 @@ const Faq = () => {
         <div
           data-aos="fade-down"
           data-aos-offset="120"
-          data-aos-duration="1000"
+          data-aos-duration="400"
           data-aos-easing="ease-out-cubic"
-          data-aos-delay="400"
-          className="collapse collapse-plus"
+          className="collapse collapse-plus border-[1px] hover:shadow-xl"
         >
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
